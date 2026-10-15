@@ -1,1 +1,132 @@
-<p>create-ticket works!</p>
+<html>
+    <head>
+        <title>Create Ticket</title>
+        <link rel="stylesheet" href="create-ticket.css">
+    </head>
+    <body>
+        <div class="ticket-container">
+
+    <div class="ticket-card">
+
+
+        <h1>Create Ticket</h1>
+
+        <p>Raise your support request</p>
+
+
+
+        <form [formGroup]="ticketForm"
+              (ngSubmit)="submitTicket()">
+
+
+
+            <label>Title</label>
+
+            <input 
+            type="text"
+            placeholder="Enter ticket title"
+            formControlName="title">
+
+
+            <small *ngIf="ticketForm.controls.title.invalid &&
+            ticketForm.controls.title.touched">
+
+            Title must contain minimum 5 characters
+
+            </small>
+
+
+
+
+            <label>Description</label>
+
+            <textarea
+            placeholder="Explain your issue"
+            formControlName="description">
+            </textarea>
+
+
+            <small *ngIf="ticketForm.controls.description.invalid &&
+            ticketForm.controls.description.touched">
+
+            Description must contain minimum 10 characters
+
+            </small>
+
+
+
+
+
+            <label>Category</label>
+
+            <select formControlName="category">
+
+                <option value="">
+                    Select Category
+                </option>
+
+                <option value="Technical">
+                    Technical
+                </option>
+
+                <option value="Access">
+                    Access
+                </option>
+
+                <option value="Hardware">
+                    Hardware
+                </option>
+
+                <option value="Software">
+                    Software
+                </option>
+
+                <option value="Other">
+                    Other
+                </option>
+
+            </select>
+
+
+
+
+
+            <label>Priority</label>
+
+            <select formControlName="priority">
+
+                <option value="">
+                    Select Priority
+                </option>
+
+                <option value="Low">
+                    Low
+                </option>
+
+                <option value="Medium">
+                    Medium
+                </option>
+
+                <option value="High">
+                    High
+                </option>
+
+            </select>
+
+
+
+
+            <button type="submit">
+                Submit Ticket
+            </button>
+
+
+
+        </form>
+
+
+    </div>
+
+</div>
+</body>
+</html>

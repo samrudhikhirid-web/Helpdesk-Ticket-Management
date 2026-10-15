@@ -1,1 +1,156 @@
-<p>dashboard works!</p>
+<div class="dashboard">
+
+    <div class="header">
+
+        <h1>
+            Welcome {{username}} 👋
+        </h1>
+
+        <p>
+            Track your support tickets here
+        </p>
+
+    </div>
+
+
+    <!-- Ticket Summary Cards -->
+
+    <div class="cards">
+
+
+        <div class="card">
+
+            <h2>
+                {{getTotalTickets()}}
+            </h2>
+
+            <span>
+                Total Tickets
+            </span>
+
+        </div>
+
+
+
+        <div class="card">
+
+            <h2>
+                {{getOpenTickets()}}
+            </h2>
+
+            <span>
+                Open Tickets
+            </span>
+
+        </div>
+
+
+
+        <div class="card">
+
+            <h2>
+                {{getResolvedTickets()}}
+            </h2>
+
+            <span>
+                Resolved Tickets
+            </span>
+
+        </div>
+
+
+    </div>
+
+
+
+    <!-- Previous Tickets Section -->
+
+    <div class="ticket-section">
+
+
+        <h2>
+            My Previous Tickets
+        </h2>
+
+
+
+        <div class="table-container">
+
+
+            <table>
+
+
+                <thead>
+
+                    <tr>
+
+                        <th>
+                            Ticket ID
+                        </th>
+
+                        <th>
+                            Title
+                        </th>
+
+                        <th>
+                            Category
+                        </th>
+
+                        <th>
+                            Priority
+                        </th>
+
+                        <th>
+                            Status
+                        </th>
+
+                        <th>
+                            Created Date
+                        </th>
+
+                    </tr>
+
+                </thead>
+
+
+
+                <tbody>
+
+
+                    <tr *ngFor="let ticket of tickets">
+
+
+                        <td>
+                            {{ticket.id}}
+                        </td>
+
+
+                        <td>
+                            {{ticket.title}}
+                        </td>
+
+
+                        <td>
+                            {{ticket.category}}
+                        </td>
+
+
+                        <td>
+                            {{ticket.priority}}
+                        </td>
+
+
+                        <td>
+                            {{ticket.status}}
+                        </td>
+
+
+                        <td>
+                            {{ticket.createdDate}}
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>

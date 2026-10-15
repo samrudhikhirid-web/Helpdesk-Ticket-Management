@@ -42,8 +42,6 @@ export class Register {
 
   });
 
-
-
   submitRegister(){
 
     if(this.registerForm.valid){
