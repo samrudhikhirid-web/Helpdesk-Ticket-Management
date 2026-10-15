@@ -11,6 +11,7 @@ connectDB();
 // Middleware
 app.use(cors());
 app.use(express.json());
+
 app.use("/api/users", userRoutes);
 
 // Test API

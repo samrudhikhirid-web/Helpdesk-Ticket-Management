@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { ReactiveFormsModule, FormGroup, FormControl, Validators } from '@angular/forms';
 import { RouterLink } from '@angular/router';
 import { CommonModule } from '@angular/common';
+import { UserService } from '../../user.service/user.service';
 
 
 @Component({
@@ -16,6 +17,9 @@ import { CommonModule } from '@angular/common';
 })
 export class Register {
 
+    constructor(
+    private userService: UserService
+  ){}
 
   registerForm = new FormGroup({
 
@@ -56,7 +60,7 @@ export class Register {
 
     }
 
-  }
+}
 
 
 }
