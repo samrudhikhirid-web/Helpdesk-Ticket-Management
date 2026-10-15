@@ -1,0 +1,124 @@
+<div class="profile-container">
+
+    <div class="profile-card">
+
+        <div class="profile-header">
+
+            <div class="profile-icon">
+                👤
+            </div>
+            <h1>
+                My Profile
+            </h1>
+        </div>
+
+        <!-- Name -->
+
+        <div class="profile-row">
+
+            <label>
+                Name
+            </label>
+
+            <input
+            *ngIf="editMode"
+            type="text"
+            [(ngModel)]="user.name">
+
+            <span *ngIf="!editMode">
+                {{user.name}}
+            </span>
+
+        </div>
+
+        <!-- Email -->
+
+        <div class="profile-row">
+
+            <label>
+                Email
+            </label>
+
+            <span>
+                {{user.email}}
+            </span>
+
+        </div>
+
+        <!-- Mobile -->
+
+        <div class="profile-row">
+
+            <label>
+                Mobile
+            </label>
+
+            <input
+            *ngIf="editMode"
+            type="text"
+            [(ngModel)]="user.mobile">
+
+            <span *ngIf="!editMode">
+                {{user.mobile}}
+            </span>
+
+        </div>
+
+        <!-- Role -->
+
+        <div class="profile-row">
+
+            <label>
+                Role
+            </label>
+
+            <span>
+                {{user.role}}
+            </span>
+
+        </div>
+
+        <!-- Account Created -->
+
+        <div class="profile-row">
+            <label>
+                Joined Date
+            </label>
+
+            <span>
+                {{user.createdDate}}
+            </span>
+        </div>
+
+        <!-- Buttons -->
+
+        <div class="buttons">
+
+            <button
+            *ngIf="!editMode"
+            class="edit-btn"
+            (click)="enableEdit()">
+                ✏️ Edit Profile
+            </button>
+
+            <button
+            *ngIf="editMode"
+            class="save-btn"
+            (click)="saveProfile()">
+                💾 Save Changes
+            </button>
+
+            <button
+            *ngIf="editMode"
+            class="cancel-btn"
+            (click)="cancelEdit()">
+
+                ❌ Cancel
+
+            </button>
+
+        </div>
+
+    </div>
+
+</div>

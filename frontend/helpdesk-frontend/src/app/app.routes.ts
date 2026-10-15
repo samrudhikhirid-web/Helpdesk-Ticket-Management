@@ -1,14 +1,12 @@
-import { Routes } from '@angular/router';
-
-
+ import { Routes } from '@angular/router';
 
 import {Login } from './pages/login/login';
 import {Register } from './pages/register/register';
 import { DashboardLayout } from './layouts/dashboard-layout/dashboard-layout';
 import {Dashboard } from './pages/dashboard/dashboard';
-import {TicketDetails } from './pages/ticket-details/ticket-details';
 import {CreateTicket } from './pages/create-ticket/create-ticket';
 import {TicketList} from './pages/ticket-list/ticket-list';
+import { Profile } from './pages/profile/profile';
 
 export const routes: Routes = [
 
@@ -23,8 +21,6 @@ export const routes: Routes = [
     path: 'register',
     component: Register
   },
-
-
   // Private pages (With sidebar)
 
   {
@@ -37,7 +33,10 @@ export const routes: Routes = [
         path: 'dashboard',
         component: Dashboard
       },
-
+      {
+        path: 'profile',
+        component: Profile
+      },
       {
         path: 'tickets',
         component: TicketList
@@ -48,10 +47,6 @@ export const routes: Routes = [
         component: CreateTicket
       },
 
-      {
-        path: 'ticket-details/:id',
-        component: TicketDetails
-      }
 
     ]
 
