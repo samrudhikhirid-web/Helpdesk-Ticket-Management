@@ -1,0 +1,42 @@
+<div class="layout">
+
+  <aside class="sidebar">
+
+    <div class="logo">
+      <h2>Help Desk</h2>
+      <p>Ticket System</p>
+    </div>
+
+
+    <nav class="menu">
+
+      <a routerLink="/dashboard">
+        🏠 Dashboard
+      </a>
+
+      <a routerLink="/tickets">
+        🎫 Tickets
+      </a>
+
+      <a routerLink="/create-ticket">
+        ➕ Create Ticket
+      </a>
+
+      <a routerLink="/ticket-details/1">
+        📄 Ticket Details
+      </a>
+
+    </nav>
+
+
+  </aside>
+
+
+  <main class="content">
+
+    <router-outlet></router-outlet>
+
+  </main>
+
+
+</div>
