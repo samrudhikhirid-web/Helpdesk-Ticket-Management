@@ -1,29 +1,80 @@
 import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import {FormsModule} from '@angular/forms';
+import { FormsModule } from '@angular/forms';
+
 
 @Component({
-  imports: [CommonModule, FormsModule],
   selector: 'app-ticket-list',
-  styleUrl: './ticket-list.css',
+  imports: [
+    CommonModule,
+    FormsModule
+  ],
   templateUrl: './ticket-list.html',
+  styleUrl: './ticket-list.css'
 })
 export class TicketList {
+
+
+  searchText = "";
+
+
   tickets = [
-    { id: 1, title: 'Login Issue', status: 'Open', priority: 'High' },
-    { id: 2, title: 'Page not loading', status: 'Resolved', priority: 'Medium' },
-    { id: 3, title: 'Feature request', status: 'Open', priority: 'Low' },
-    { id: 4, title: 'Bug in form submission', status: 'Resolved', priority: 'High' },
-    { id: 5, title: 'UI enhancement', status: 'Open', priority: 'Medium' }
+
+    {
+      id: 101,
+      title: "Login Issue",
+      category: "Access",
+      priority: "High",
+      status: "Open",
+      createdBy: "user@gmail.com",
+      assignedTo: "Admin",
+      createdDate: "15-10-2026"
+    },
+
+
+    {
+      id: 102,
+      title: "Software Installation Problem",
+      category: "Software",
+      priority: "Medium",
+      status: "In Progress",
+      createdBy: "sam@gmail.com",
+      assignedTo: "Employee",
+      createdDate: "14-10-2026"
+    },
+
+
+    {
+      id: 103,
+      title: "Laptop Hardware Issue",
+      category: "Hardware",
+      priority: "Low",
+      status: "Resolved",
+      createdBy: "abc@gmail.com",
+      assignedTo: "Employee",
+      createdDate: "10-10-2026"
+    }
+
+
   ];
 
-  searchText='';
 
-  filteredTickets() {
+
+  filteredTickets(){
+
+
     return this.tickets.filter(ticket =>
-      ticket.title.toLowerCase().includes(this.searchText.toLowerCase()) ||
-      ticket.status.toLowerCase().includes(this.searchText.toLowerCase()) ||
-      ticket.priority.toLowerCase().includes(this.searchText.toLowerCase())
+
+
+      ticket.title
+      .toLowerCase()
+      .includes(this.searchText.toLowerCase())
+
+
     );
+
+
   }
+
+
 }
