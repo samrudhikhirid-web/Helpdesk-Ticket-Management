@@ -46,19 +46,42 @@ export class Register {
 
   });
 
-  submitRegister(){
+ submitRegister(){
 
-    if(this.registerForm.valid){
+  if(this.registerForm.valid){
 
-      console.log("Registration Data:");
-      console.log(this.registerForm.value);
 
-    }
-    else{
+    this.userService.registerUser(
+      this.registerForm.value
+    )
+    .subscribe({
 
-      console.log("Form is invalid");
+      next:(response:any)=>{
 
-    }
+        console.log(response);
+
+        alert("Registration Successful");
+
+      },
+
+
+      error:(error)=>{
+
+        console.log(error);
+
+        alert(error.error.message);
+
+      }
+
+    });
+
+
+  }
+  else{
+
+    console.log("Form is invalid");
+
+  }
 
 }
 

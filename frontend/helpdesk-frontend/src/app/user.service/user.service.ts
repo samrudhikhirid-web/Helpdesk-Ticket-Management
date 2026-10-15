@@ -13,4 +13,11 @@ export class UserService {
   {
     return this.http.post(`${this.apiUrl}/register`,data);
   }
+  loginUser(data:any)
+  {
+    return this.http.post(
+      `${this.apiUrl}/login`,
+      data
+    );
+}
 }
