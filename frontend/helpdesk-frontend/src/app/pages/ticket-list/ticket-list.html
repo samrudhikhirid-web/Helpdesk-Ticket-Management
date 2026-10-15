@@ -1,1 +1,143 @@
-<p>ticket-list works!</p>
+<html>
+    <head>
+        <title>
+            Ticket List
+        </title>
+    </head>
+    <body>
+        <div class="ticket-page">
+
+
+    <h1>
+        All Tickets
+    </h1>
+
+
+    <p>
+        Manage user support requests
+    </p>
+
+
+
+    <!-- Search -->
+
+    <input
+    type="text"
+    placeholder="Search ticket..."
+    [(ngModel)]="searchText"
+    class="search-box"
+    >
+
+
+
+
+    <div class="table-container">
+
+
+        <table>
+
+
+            <thead>
+
+                <tr>
+
+                    <th>
+                        ID
+                    </th>
+
+                    <th>
+                        Title
+                    </th>
+
+                    <th>
+                        Category
+                    </th>
+
+                    <th>
+                        Priority
+                    </th>
+
+                    <th>
+                        Status
+                    </th>
+
+                    <th>
+                        Created By
+                    </th>
+
+                    <th>
+                        Assigned To
+                    </th>
+
+                    <th>
+                        Date
+                    </th>
+
+                </tr>
+
+            </thead>
+
+
+
+            <tbody>
+
+
+                <tr *ngFor="let ticket of filteredTickets()">
+
+
+
+                    <td>
+                        {{ticket.id}}
+                    </td>
+
+
+                    <td>
+                        {{ticket.title}}
+                    </td>
+
+
+                    <td>
+                        {{ticket.category}}
+                    </td>
+
+
+                    <td>
+                        {{ticket.priority}}
+                    </td>
+
+
+                    <td>
+                        {{ticket.status}}
+                    </td>
+
+
+                    <td>
+                        {{ticket.createdBy}}
+                    </td>
+
+
+                    <td>
+                        {{ticket.assignedTo}}
+                    </td>
+
+
+                    <td>
+                        {{ticket.date}}
+                    </td>
+
+
+                </tr>
+
+
+            </tbody>
+
+
+        </table>
+
+
+    </div>
+
+
+</div>
+    </body>
+</html>

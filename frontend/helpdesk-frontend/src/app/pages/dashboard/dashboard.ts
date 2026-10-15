@@ -31,6 +31,14 @@ export class Dashboard {
       priority: 'Low',
       status: 'Resolved',
       createdDate: '2023-08-03'
+    },
+    {
+      id: 104,
+      title: 'Bug in Form Submission',
+      category: 'Technical',
+      priority: 'High',
+      status: 'Close',
+      createdDate: '2023-08-04'
     }
   ];
   getTotalTickets() {
@@ -45,5 +53,8 @@ export class Dashboard {
   }
   getInProgressTickets() {
     return this.tickets.filter(ticket => ticket.status === 'In Progress').length;
+  }
+  getClosedTickets() {
+    return this.tickets.filter(ticket => ticket.status === 'Close').length;
   }
 }

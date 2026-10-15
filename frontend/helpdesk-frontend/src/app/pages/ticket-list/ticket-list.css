@@ -1,0 +1,68 @@
+.ticket-page{
+
+    padding:25px;
+
+}
+h1{
+
+    color:#203a43;
+
+}
+p{
+
+    color:gray;
+
+}
+.search-box{
+
+    width:350px;
+
+    padding:12px;
+
+    margin:25px 0;
+
+    border-radius:8px;
+
+    border:1px solid #ccc;
+
+}
+
+.table-container{
+
+    background:white;
+
+    border-radius:12px;
+
+    overflow:hidden;
+
+}
+table{
+
+    width:100%;
+
+    border-collapse:collapse;
+
+}
+th{
+
+    background:#203a43;
+
+    color:white;
+
+    padding:14px;
+
+}
+td{
+
+    padding:12px;
+
+    text-align:center;
+
+    border-bottom:1px solid #ddd;
+
+}
+tr:hover{
+
+    background:#f1f5f9;
+
+}
