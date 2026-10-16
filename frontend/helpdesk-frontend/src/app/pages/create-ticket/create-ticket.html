@@ -8,19 +8,15 @@
 
     <div class="ticket-card">
 
-
         <h1>Create Ticket</h1>
 
         <p>Raise your support request</p>
 
 
-
         <form [formGroup]="ticketForm"
               (ngSubmit)="submitTicket()">
 
-
-
-            <label>Title</label>
+          <label>Title</label>
 
             <input 
             type="text"
@@ -35,9 +31,6 @@
 
             </small>
 
-
-
-
             <label>Description</label>
 
             <textarea
@@ -45,17 +38,12 @@
             formControlName="description">
             </textarea>
 
-
             <small *ngIf="ticketForm.controls.description.invalid &&
             ticketForm.controls.description.touched">
 
             Description must contain minimum 10 characters
 
             </small>
-
-
-
-
 
             <label>Category</label>
 
@@ -87,10 +75,6 @@
 
             </select>
 
-
-
-
-
             <label>Priority</label>
 
             <select formControlName="priority">
@@ -113,17 +97,11 @@
 
             </select>
 
-
-
-
             <button type="submit">
                 Submit Ticket
             </button>
 
-
-
         </form>
-
 
     </div>
 

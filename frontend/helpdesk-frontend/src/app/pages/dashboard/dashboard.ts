@@ -1,5 +1,6 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { TicketService } from '../../ticket.service/ticket.service';
 
 
 @Component({
@@ -8,39 +9,21 @@ import { CommonModule } from '@angular/common';
   styleUrl: './dashboard.css',
   templateUrl: './dashboard.html',
 })
-export class Dashboard {
+export class Dashboard implements OnInit{
+  constructor(private ticketService: TicketService){}
   username="User";
-  tickets = [
-    { id: 101,
-      title: 'Login Issue',
-      category: 'Technical',
-      priority: 'High',
-      status: 'Resolved',
-      createdDate: '2023-08-01'
-    },
-    { id: 102,
-      title: 'Payment Failure',
-      category: 'Billing',
-      priority: 'Medium',
-      status: 'In Progress',
-      createdDate: '2023-08-02'
-    },
-    { id: 103,
-      title: 'Feature Request',
-      category: 'General Inquiry',
-      priority: 'Low',
-      status: 'Resolved',
-      createdDate: '2023-08-03'
-    },
-    {
-      id: 104,
-      title: 'Bug in Form Submission',
-      category: 'Technical',
-      priority: 'High',
-      status: 'Close',
-      createdDate: '2023-08-04'
-    }
-  ];
+  tickets :any[] = [];
+  ngOnInit() {
+      this.ticketService.getMyTickets().subscribe({
+        next:(response:any)=>{
+          console.log(response);
+          this.tickets=response;
+        },
+        error:(error)=>{
+          console.log(error);
+        }
+      })
+  }
   getTotalTickets() {
     return this.tickets.length;
   }

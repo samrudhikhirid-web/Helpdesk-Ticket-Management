@@ -5,9 +5,7 @@
     <h1>Help Desk</h1>
     <p class="subtitle">Login to manage your support tickets</p>
 
-
     <form [formGroup]="loginForm" (ngSubmit)="submitLogin()">
-
 
       <div class="form-group">
 
@@ -40,24 +38,18 @@
         <small *ngIf="loginForm.controls.password.invalid && loginForm.controls.password.touched">
           Password is required
         </small>
-
       </div>
-
-
 
       <button type="submit">
         Login
       </button>
 
-
     </form>
-
 
     <p class="register-text">
       Don't have an account?
       <a routerLink="/register">Register</a>
     </p>
-
 
   </div>
 

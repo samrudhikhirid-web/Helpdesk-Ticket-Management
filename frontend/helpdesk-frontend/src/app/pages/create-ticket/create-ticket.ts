@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { ReactiveFormsModule, FormGroup, FormControl, Validators } from '@angular/forms';
 import { CommonModule } from '@angular/common';
+import { TicketService } from '../../ticket.service/ticket.service';
 
 @Component({
   imports: [
@@ -12,6 +13,10 @@ import { CommonModule } from '@angular/common';
   templateUrl: './create-ticket.html',
 })
 export class CreateTicket {
+
+  constructor(
+    private ticketService:TicketService
+  ){}
 
   ticketForm = new FormGroup({
     title: new FormControl('', [
@@ -36,10 +41,21 @@ export class CreateTicket {
     
     if (this.ticketForm.valid) {
 
-      console.log("Ticket submitted");
-      console.log(this.ticketForm.value);
-
-      alert("Ticket created successfully!");
+      this.ticketService.createTicket(
+        this.ticketForm.value
+      ).subscribe({
+          next:(response:any)=>{
+            console.log(response);
+            alert("Ticket created successfully")
+            this.ticketForm.reset() //reset ticket
+          },
+           error:(error)=>{
+              console.log(error);
+              console.log(error.error);              
+              alert(JSON.stringify(error.error)
+              )
+           }
+      });
     }
     else {
       console.log("Form is invalid");
