@@ -1,21 +1,25 @@
 const jwt = require("jsonwebtoken");
-const verifyToken = (req, res, next) => {
+
+const authMiddleware = (req, res, next) => {
 
     try {
 
         // Get token from header
         const authHeader = req.headers.authorization;
 
-        if (!authHeader) {
+        if(!authHeader){
             return res.status(401).json({
-                message: "No token provided"
+                message:"Token not provided"
             });
+
         }
 
-        // Format: Bearer token
+        // Remove Bearer word
 
         const token = authHeader.split(" ")[1];
+
         // Verify token
+
         const decoded = jwt.verify(
             token,
             "helpdesk_secret_key"
@@ -25,12 +29,11 @@ const verifyToken = (req, res, next) => {
         req.user = decoded;
         next();
     }
-
-    catch(error) {
+    catch(error){
         return res.status(401).json({
-            message: "Invalid token"
+            message:"Invalid token"
         });
     }
 };
 
-module.exports = verifyToken;
+module.exports = authMiddleware;

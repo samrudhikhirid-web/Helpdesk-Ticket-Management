@@ -2,8 +2,10 @@ import { Component } from '@angular/core';
 import { ReactiveFormsModule ,FormGroup,FormControl,Validators} from '@angular/forms';
 import { Router } from '@angular/router';
 import { UserService } from '../../user.service/user.service';
+import { CommonModule } from '@angular/common';
+import { Auth } from '../../auth';
 @Component({
-  imports: [ReactiveFormsModule
+  imports: [ReactiveFormsModule,CommonModule
   ],
   selector: 'app-login',
   styleUrl: './login.css',
@@ -13,7 +15,8 @@ export class Login {
 
   constructor(
     private userService:UserService,
-    private router:Router
+    private router:Router,
+    private auth:Auth
   ){}
   loginForm = new FormGroup({
     email: new FormControl('', [Validators.required, Validators.email]),
@@ -21,8 +24,9 @@ export class Login {
   });
   submitLogin()
   {
+    console.log("Login Button clicked")
     if(this.loginForm.valid){
-
+      console.log("Valid form")
       this.userService.loginUser(
         this.loginForm.value
       )
@@ -36,6 +40,10 @@ export class Login {
             "token",
             response.token
           );
+
+          //update login status
+
+          this.auth.login(response.token);
 
           // store user details
 

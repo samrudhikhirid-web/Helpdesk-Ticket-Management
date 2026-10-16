@@ -7,6 +7,7 @@ import {Dashboard } from './pages/dashboard/dashboard';
 import {CreateTicket } from './pages/create-ticket/create-ticket';
 import {TicketList} from './pages/ticket-list/ticket-list';
 import { Profile } from './pages/profile/profile';
+import { authGuard } from './auth-guard';
 
 export const routes: Routes = [
 
@@ -14,7 +15,7 @@ export const routes: Routes = [
 
   {
     path: 'login',
-    component: Login
+    component: Login,
   },
 
   {
@@ -31,20 +32,25 @@ export const routes: Routes = [
 
       {
         path: 'dashboard',
-        component: Dashboard
+        component: Dashboard,
+        canActivate:[authGuard]
       },
+      
       {
         path: 'profile',
-        component: Profile
+        component: Profile,
+        canActivate:[authGuard]
       },
       {
         path: 'tickets',
-        component: TicketList
+        component: TicketList,
+        canActivate:[authGuard]
       },
 
       {
         path: 'create-ticket',
-        component: CreateTicket
+        component: CreateTicket,
+        canActivate:[authGuard]
       },
 
 
@@ -52,13 +58,15 @@ export const routes: Routes = [
 
   },
 
-
   // Default page
-
   {
     path: '',
     redirectTo: 'login',
     pathMatch: 'full'
+  },
+  {
+    path:'**',
+    redirectTo:'login'
   }
 
 ];
