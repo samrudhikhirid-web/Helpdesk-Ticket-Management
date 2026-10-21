@@ -20,7 +20,6 @@ const createTicket=async(req,res)=>
             createdBy:req.user.id
         });
         await ticket.save();
-
         res.status(201).json({
             message:"Ticket created successfully",ticket
         })
@@ -30,8 +29,7 @@ const createTicket=async(req,res)=>
         res.status(500).json({
             message:error.message      
         });
-    }
-    
+    }  
 }
 
 async (req,res)=>{
@@ -44,56 +42,38 @@ async (req,res)=>{
 
     }
      catch(error){
-
-
         res.status(500).json({
-
             message:error.message
 
         });
     }
-
 }
 // Get My Tickets
 
 const getMyTickets = async (req, res) => {
 
-
     try {
-
+        console.log("Logged user:", req.user);
 
         const tickets = await Ticket.find({
-
             createdBy: req.user.id
 
         });
-
-
-
         res.json(tickets);
-
 
     }
 
-
     catch(error) {
 
-
-        res.status(500).json({
-
+       res.status(500).json({
             message: error.message
 
         });
 
-
     }
-
-
 };
 
 module.exports = {
-
     createTicket,
-
     getMyTickets
 };

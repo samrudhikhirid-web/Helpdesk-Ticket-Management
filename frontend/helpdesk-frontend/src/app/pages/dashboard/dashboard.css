@@ -86,6 +86,10 @@
     margin-bottom: 20px;
 
 }
+.ticket-section{
+    display: block;
+    margin-top: 30px;
+}
 /* Table */
 
 .table-container {

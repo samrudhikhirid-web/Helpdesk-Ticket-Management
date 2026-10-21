@@ -25,8 +25,7 @@ export class CreateTicket {
       Validators.maxLength(100)
     ]),
     description: new FormControl('', [
-      Validators.required,
-      Validators.minLength(10),
+      Validators.required,   
       Validators.maxLength(1000)
     ]),
     category:new FormControl('', [

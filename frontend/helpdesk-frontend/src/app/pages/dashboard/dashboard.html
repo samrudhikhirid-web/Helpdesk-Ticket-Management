@@ -1,5 +1,5 @@
 <div class="dashboard">
-
+   
     <div class="header">
 
         <h1>
@@ -72,29 +72,19 @@
 
     </div>
 
-
-
     <!-- Previous Tickets Section -->
 
     <div class="ticket-section">
-
 
         <h2>
             My Previous Tickets
         </h2>
 
-
-
         <div class="table-container">
 
-
             <table>
-
-
                 <thead>
-
                     <tr>
-
                         <th>
                             Ticket ID
                         </th>
@@ -123,42 +113,24 @@
 
                 </thead>
 
-
-
                 <tbody>
+                   
 
 
-                    <tr *ngFor="let ticket of tickets">
+                   <tr *ngFor="let ticket of tickets">
 
+                        <td>{{ticket._id}}</td>
 
-                        <td>
-                            {{ticket._id}}
-                        </td>
+                        <td>{{ticket.title}}</td>
 
+                        <td>{{ticket.category}}</td>
 
-                        <td>
-                            {{ticket.title}}
-                        </td>
+                        <td>{{ticket.priority}}</td>
 
+                        <td>{{ticket.status}}</td>
 
-                        <td>
-                            {{ticket.category}}
-                        </td>
+                        <td>{{ticket.createdDate | date}}</td>
 
-
-                        <td>
-                            {{ticket.priority}}
-                        </td>
-
-
-                        <td>
-                            {{ticket.status}}
-                        </td>
-
-
-                        <td>
-                            {{ticket.createdAt | date:'dd/MM/yyyy'}}
-                        </td>
                     </tr>
                 </tbody>
             </table>

@@ -1,37 +1,36 @@
 const jwt = require("jsonwebtoken");
 
 const authMiddleware = (req, res, next) => {
-
     try {
 
-        // Get token from header
+        console.log("Authorization Header:", req.headers.authorization);
+
         const authHeader = req.headers.authorization;
 
-        if(!authHeader){
+        if (!authHeader) {
             return res.status(401).json({
-                message:"Token not provided"
+                message: "Token not provided"
             });
-
         }
-
-        // Remove Bearer word
 
         const token = authHeader.split(" ")[1];
 
-        // Verify token
+        console.log("Received Token:", token);
 
-        const decoded = jwt.verify(
-            token,
-            "helpdesk_secret_key"
-        );
+        const decoded = jwt.verify(token, "helpdesk_secret_key");
 
-        // Store user information
+        console.log("Decoded Token:", decoded);
+
         req.user = decoded;
+
         next();
-    }
-    catch(error){
+
+    } catch (error) {
+
+        console.log("JWT Error:", error);
+
         return res.status(401).json({
-            message:"Invalid token"
+            message: "Invalid token"
         });
     }
 };
