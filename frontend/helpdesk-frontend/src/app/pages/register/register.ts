@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { ReactiveFormsModule, FormGroup, FormControl, Validators } from '@angular/forms';
-import { RouterLink } from '@angular/router';
+import { RouterLink ,Router} from '@angular/router';
 import { CommonModule } from '@angular/common';
 import { UserService } from '../../user.service/user.service';
 
@@ -10,7 +10,8 @@ import { UserService } from '../../user.service/user.service';
   imports: [
     CommonModule,
     ReactiveFormsModule,
-    RouterLink
+    RouterLink,
+   
   ],
   templateUrl: './register.html',
   styleUrl: './register.css'
@@ -18,7 +19,8 @@ import { UserService } from '../../user.service/user.service';
 export class Register {
 
     constructor(
-    private userService: UserService
+    private userService: UserService,
+    private router: Router
   ){}
 
   registerForm = new FormGroup({
@@ -60,8 +62,8 @@ export class Register {
 
         console.log(response);
 
-        alert("Registration Successful");
-
+        alert("Registration Successful ✅");
+        this.router.navigate(['/login'])
       },
 
 

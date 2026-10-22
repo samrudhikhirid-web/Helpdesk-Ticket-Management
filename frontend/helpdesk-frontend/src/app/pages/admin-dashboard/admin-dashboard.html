@@ -1,0 +1,26 @@
+<div class="admin-page">
+    <h1>
+        Admin Dashboard
+    </h1>
+
+    <p>
+        Manage Help Desk System
+    </p>
+
+    <div class="cards">
+
+        <div class="card" *ngFor="let item of stats">
+
+            <h2>
+                {{item.count}}
+            </h2>
+
+            <p>
+                {{item.title}}
+            </p>
+
+        </div>
+
+    </div>
+
+</div>

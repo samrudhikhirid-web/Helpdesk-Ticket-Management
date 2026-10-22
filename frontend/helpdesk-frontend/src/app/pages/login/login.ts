@@ -52,14 +52,18 @@ export class Login {
             JSON.stringify(response.user)
           );
 
-          alert("Login Successful");
+          alert("Login Successful ✅");
 
-          if(response.user.role === "Admin"){
-            this.router.navigate(['/admin-dashboard']);
-          }
-          else{
-            this.router.navigate(['/dashboard']);
-          }
+console.log("User role:", response.user.role);
+
+if(response.user.role === "Admin"){
+  console.log("Going to admin dashboard");
+  this.router.navigate(['/admin-dashboard']);
+}
+else{
+  console.log("Going to user dashboard");
+  this.router.navigate(['/dashboard']);
+}
         },
 
         error:(error)=>{

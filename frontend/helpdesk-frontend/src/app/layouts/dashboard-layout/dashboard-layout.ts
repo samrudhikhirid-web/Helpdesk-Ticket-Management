@@ -29,8 +29,9 @@ export class DashboardLayout implements OnInit {
   if(confirmLogout){
 
     localStorage.removeItem("token");
+    localStorage.removeItem("user")
 
-    this.router.navigate(['/login']);
+    this.router.navigate(['/login'], { replaceUrl:true });
 
   }
 

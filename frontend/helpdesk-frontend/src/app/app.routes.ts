@@ -7,6 +7,7 @@ import {Dashboard } from './pages/dashboard/dashboard';
 import {CreateTicket } from './pages/create-ticket/create-ticket';
 import {TicketList} from './pages/ticket-list/ticket-list';
 import { Profile } from './pages/profile/profile';
+import { AdminDashboard } from './pages/admin-dashboard/admin-dashboard';
 import { authGuard } from './auth-guard';
 
 export const routes: Routes = [
@@ -59,11 +60,16 @@ export const routes: Routes = [
         path: 'create-ticket',
         component: CreateTicket,
        
+      },
+      {
+        path: 'admin-dashboard',
+        component: AdminDashboard,
+        canActivate:[authGuard]
       }
 
     ]
   },
-
+ 
 
   {
     path:'**',
