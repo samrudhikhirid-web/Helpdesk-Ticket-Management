@@ -1,7 +1,7 @@
-import { Component } from '@angular/core';
+import { Component, OnInit, ChangeDetectorRef} from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
-
+import { TicketService } from '../../ticket.service/ticket.service';
 
 @Component({
   selector: 'app-ticket-list',
@@ -12,60 +12,44 @@ import { FormsModule } from '@angular/forms';
   templateUrl: './ticket-list.html',
   styleUrl: './ticket-list.css'
 })
-export class TicketList {
+export class TicketList implements OnInit {
+
+  constructor(
+    private ticketService: TicketService,
+    private cdr: ChangeDetectorRef
+  ) {}
+
   searchText = "";
   selectedStatus = "";
   selectedPriority = "";
   selectedCategory = "";
   selectedTicket:any = null;
 
-  tickets = [
+  tickets:any[] = [];
+  
+  ngOnInit(){
 
-    {
-      id:101,
-      title:"Login Issue",
-      description:"User is unable to login into application.",
-      category:"Access",
-      priority:"High",
-      status:"Open",
-      createdBy:"user@gmail.com",
-      assignedTo:"Admin",
-      createdDate:"15-10-2026",
-      updatedDate:"15-10-2026"
-    },
+    this.ticketService.getMyTickets()
+    .subscribe({
 
+      next:(response:any)=>{
 
-    {
-      id:102,
-      title:"Software Installation Problem",
-      description:"Required software installation failed.",
-      category:"Software",
-      priority:"Medium",
-      status:"In Progress",
-      createdBy:"sam@gmail.com",
-      assignedTo:"Employee",
-      createdDate:"14-10-2026",
-      updatedDate:"15-10-2026"
-    },
+        console.log("Tickets From Backend:", response);
 
+        this.tickets = response;
+        this.cdr.detectChanges();
+      },
 
-    {
-      id:103,
-      title:"Laptop Hardware Issue",
-      description:"Keyboard keys are not working.",
-      category:"Hardware",
-      priority:"Low",
-      status:"Resolved",
-      createdBy:"abc@gmail.com",
-      assignedTo:"Employee",
-      createdDate:"10-10-2026",
-      updatedDate:"12-10-2026"
-    }
+      error:(error)=>{
 
-  ];
+        console.log(error);
 
+      }
+
+    });
+
+  }
   filteredTickets(){
-
 
     return this.tickets.filter(ticket =>
 
@@ -81,14 +65,13 @@ export class TicketList {
       &&
       (this.selectedCategory === "" ||
        ticket.category === this.selectedCategory)
+
     );
 
   }
-
   viewDetails(ticket:any){
     this.selectedTicket = ticket;
   }
-
   closeDetails(){
     this.selectedTicket = null;
   }

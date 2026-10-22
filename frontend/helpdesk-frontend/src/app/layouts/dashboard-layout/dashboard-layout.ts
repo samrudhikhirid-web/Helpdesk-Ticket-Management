@@ -1,23 +1,38 @@
-import { Component } from '@angular/core';
-import {RouterOutlet,RouterLink} from '@angular/router';
+import { Component ,OnInit} from '@angular/core';
+import {Router,RouterOutlet,RouterLink} from '@angular/router';
+import { CommonModule } from '@angular/common';
 @Component({
-  imports: [RouterOutlet,RouterLink],
+  imports: [RouterOutlet,RouterLink,CommonModule],
   selector: 'app-dashboard-layout',
   styleUrl: './dashboard-layout.css',
   templateUrl: './dashboard-layout.html',
 })
-export class DashboardLayout {
-  role = '';
+export class DashboardLayout implements OnInit {
+    constructor(
+    private router: Router
+    ){}
+  role: string = '';
 
-ngOnInit(){
+  ngOnInit(){
 
-  const user = JSON.parse(localStorage.getItem('user') || '{}');
+    const user = JSON.parse(localStorage.getItem('user') || '{}');
 
-  console.log("Logged User:", user);
+    this.role = user.role;
 
-  this.role = user.role;
+    console.log("Role:", this.role);
 
-  console.log("Role:", this.role);
+  }
+ logout(){
+
+  const confirmLogout = confirm("Are you sure you want to logout?");
+
+  if(confirmLogout){
+
+    localStorage.removeItem("token");
+
+    this.router.navigate(['/login']);
+
+  }
 
 }
 }

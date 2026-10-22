@@ -11,59 +11,60 @@ import { authGuard } from './auth-guard';
 
 export const routes: Routes = [
 
-  // Public pages (No sidebar)
+  // Default page first
+  {
+    path: '',
+    redirectTo: 'login',
+    pathMatch: 'full'
+  },
 
+  // Public pages
   {
     path: 'login',
-    component: Login,
+    component: Login
   },
 
   {
     path: 'register',
     component: Register
   },
-  // Private pages (With sidebar)
 
+
+  // Private pages
   {
     path: '',
     component: DashboardLayout,
-
+    canActivate:[authGuard],
     children: [
 
       {
         path: 'dashboard',
         component: Dashboard,
-        canActivate:[authGuard]
+     
       },
-      
+
       {
         path: 'profile',
         component: Profile,
-        canActivate:[authGuard]
+   
       },
+
       {
         path: 'tickets',
         component: TicketList,
-        canActivate:[authGuard]
+       
       },
 
       {
         path: 'create-ticket',
         component: CreateTicket,
-        canActivate:[authGuard]
-      },
-
+       
+      }
 
     ]
-
   },
 
-  // Default page
-  {
-    path: '',
-    redirectTo: 'login',
-    pathMatch: 'full'
-  },
+
   {
     path:'**',
     redirectTo:'login'

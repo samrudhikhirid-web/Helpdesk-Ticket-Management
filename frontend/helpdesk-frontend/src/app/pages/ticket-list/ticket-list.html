@@ -7,14 +7,8 @@
 
 
         <h1>
-            All Tickets
+            My Tickets
         </h1>
-
-
-        <p>
-            Manage user support requests
-        </p>
-
 
 
         <!-- Filters -->
@@ -179,7 +173,7 @@
 
 
                         <td>
-                            {{ticket.id}}
+                            {{ticket._id.substring(0,6)}}
                         </td>
 
 
@@ -209,7 +203,7 @@
 
 
                         <td>
-                            {{ticket.createdBy}}
+                            {{ticket.createdBy?.email}}
                         </td>
 
 
@@ -269,7 +263,7 @@
             </b>
 
             <span>
-                {{selectedTicket.id}}
+                {{selectedTicket._id}}
             </span>
 
         </div>
@@ -359,7 +353,7 @@
             </b>
 
             <span>
-                {{selectedTicket.createdBy}}
+                {{selectedTicket.createdBy.email}}
             </span>
 
         </div>
@@ -367,18 +361,7 @@
 
 
 
-        <div class="detail-row">
-
-            <b>
-                Assigned To
-            </b>
-
-            <span>
-                {{selectedTicket.assignedTo}}
-            </span>
-
-        </div>
-
+        
         <div class="detail-row">
 
             <b>

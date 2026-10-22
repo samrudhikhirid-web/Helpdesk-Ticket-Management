@@ -1,151 +1,78 @@
 .register-container {
-
     height: 100vh;
-
     display: flex;
-
     justify-content: center;
-
     align-items: center;
-
-    background: linear-gradient(135deg, #0f2027, #203a43, #2c5364);
+    background-image: url('background.png');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
 
 }
-
-
-
 .register-card {
-
     width: 400px;
-
     padding: 35px;
-
     background: white;
-
     border-radius: 15px;
-
     box-shadow: 0 10px 30px rgba(0,0,0,0.3);
-
 }
-
-
-
 .register-card h1 {
-
     text-align: center;
-
     color: #203a43;
-
     margin-bottom: 10px;
-
 }
-
-
 
 .register-card p {
-
     text-align: center;
-
     color: gray;
-
     margin-bottom: 25px;
-
 }
-
-
 
 label {
-
     display: block;
-
     font-weight: 600;
-
     margin-bottom: 8px;
-
 }
-
-
 
 input {
-
     width: 100%;
-
     padding: 12px;
-
     margin-bottom: 15px;
-
     border: 1px solid #ccc;
-
     border-radius: 8px;
-
     font-size: 15px;
-
 }
-
-
 
 input:focus {
-
     outline: none;
-
     border-color: #203a43;
-
 }
-
-
 
 small {
-
     display: block;
-
     color: red;
-
     margin-top: -10px;
-
     margin-bottom: 10px;
-
 }
-
-
 
 button {
-
     width: 100%;
-
     padding: 12px;
-
     border: none;
-
     border-radius: 8px;
-
     background: #203a43;
-
     color: white;
-
     font-size: 16px;
-
     cursor: pointer;
-
     margin-top: 10px;
-
 }
-
-
 
 button:hover {
-
     background: #2c5364;
-
 }
 
-
-
 a {
-
     color: #203a43;
-
     font-weight: bold;
-
     text-decoration: none;
-
 }

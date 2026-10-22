@@ -26,22 +26,29 @@
 }
 /* Menu */
 .menu {
-    display: flex;
-    flex-direction: column;
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
 }
+
+
 .menu a {
-    color: white;
-    text-decoration: none;
-    padding: 14px;
-    margin-bottom: 12px;
-    border-radius: 8px;
-    font-size: 16px;
+  display: block;
+  text-decoration: none;
+  color: white;
+  padding: 12px;
+  border-radius: 8px;
+  cursor: pointer;
 }
 
 .menu a:hover {
     background: #2563eb;
 }
-
+.menu div {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
 /* Page Content */
 
 .content {

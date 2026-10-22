@@ -1,11 +1,11 @@
 import { Component } from '@angular/core';
 import { ReactiveFormsModule ,FormGroup,FormControl,Validators} from '@angular/forms';
-import { Router } from '@angular/router';
+import { Router ,RouterLink} from '@angular/router';
 import { UserService } from '../../user.service/user.service';
 import { CommonModule } from '@angular/common';
 import { Auth } from '../../auth';
 @Component({
-  imports: [ReactiveFormsModule,CommonModule
+  imports: [ReactiveFormsModule,CommonModule,RouterLink
   ],
   selector: 'app-login',
   styleUrl: './login.css',

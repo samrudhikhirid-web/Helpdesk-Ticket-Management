@@ -37,7 +37,7 @@ async (req,res)=>{
     try{
         const tickets = await Ticket.find({
             createdBy:req.user.id
-        });
+        }).populate("createdBy","name email")
         res.json(tickets);
 
     }
@@ -58,7 +58,7 @@ const getMyTickets = async (req, res) => {
         const tickets = await Ticket.find({
             createdBy: req.user.id
 
-        });
+        }).populate("createdBy", "name email");
         res.json(tickets);
 
     }

@@ -23,7 +23,7 @@ export class TicketDetails {
     priority: "High",
     status: "Open",
     createdBy: "user@gmail.com",
-    assignedTo: "Admin",
+   
     createdDate: "15-10-2026",
     updatedDate: "15-10-2026"
   };
