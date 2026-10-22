@@ -6,4 +6,18 @@ import {RouterOutlet,RouterLink} from '@angular/router';
   styleUrl: './dashboard-layout.css',
   templateUrl: './dashboard-layout.html',
 })
-export class DashboardLayout {}
+export class DashboardLayout {
+  role = '';
+
+ngOnInit(){
+
+  const user = JSON.parse(localStorage.getItem('user') || '{}');
+
+  console.log("Logged User:", user);
+
+  this.role = user.role;
+
+  console.log("Role:", this.role);
+
+}
+}

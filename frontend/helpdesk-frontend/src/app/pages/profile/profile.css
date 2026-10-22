@@ -24,9 +24,6 @@
 
 }
 
-
-
-
 .profile-header {
 
     text-align:center;
@@ -35,24 +32,17 @@
 
 }
 
-
-
 .profile-icon {
 
     font-size:60px;
 
 }
 
-
-
 .profile-header h1 {
 
     color:#203a43;
 
 }
-
-
-
 
 .profile-row {
 
@@ -68,9 +58,6 @@
 
 }
 
-
-
-
 .profile-row label {
 
     font-weight:600;
@@ -79,17 +66,11 @@
 
 }
 
-
-
-
 .profile-row span {
 
     color:#555;
 
 }
-
-
-
 
 input {
 
@@ -103,10 +84,6 @@ input {
 
 }
 
-
-
-
-
 .buttons {
 
     margin-top:30px;
@@ -116,10 +93,6 @@ input {
     gap:15px;
 
 }
-
-
-
-
 
 button {
 
@@ -137,24 +110,17 @@ button {
 
 }
 
-
-
-
 .edit-btn {
 
     background:#2563eb;
 
 }
 
-
-
 .save-btn {
 
     background:#16a34a;
 
 }
-
-
 
 .cancel-btn {
 

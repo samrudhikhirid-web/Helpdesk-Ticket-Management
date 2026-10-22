@@ -10,22 +10,58 @@
 
     <nav class="menu">
 
+
+      <!-- Common for both -->
       <a routerLink="/profile">
-         👤 Profile
-      </a>
-      <a routerLink="/dashboard">
-        🏠 Dashboard
+        👤 Profile
       </a>
 
-      <a routerLink="/tickets">
-        🎫 Tickets
+
+      <!-- User Menu -->
+      <div *ngIf="role === 'User'">
+
+        <a routerLink="/dashboard">
+          🏠 Dashboard
+        </a>
+
+        <a routerLink="/tickets">
+          🎫 My Tickets
+        </a>
+
+        <a routerLink="/create-ticket">
+          ➕ Create Ticket
+        </a>
+
+      </div>
+
+
+
+      <!-- Admin Menu -->
+      <div *ngIf="role === 'Admin'">
+
+        <a routerLink="/admin-dashboard">
+          🏠 Admin Dashboard
+        </a>
+
+        <a routerLink="/admin-tickets">
+          🎫 Manage Tickets
+        </a>
+
+        <a routerLink="/categories">
+          📂 Manage Categories
+        </a>
+
+        <a routerLink="/employees">
+          👥 Manage Employees
+        </a>
+
+      </div>
+
+
+      <a routerLink="/login">
+        🚪 Logout
       </a>
 
-      <a routerLink="/create-ticket">
-        ➕ Create Ticket
-      </a>
-
-     
 
     </nav>
 

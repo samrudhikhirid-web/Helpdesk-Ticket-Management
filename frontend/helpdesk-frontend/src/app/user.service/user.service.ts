@@ -19,5 +19,23 @@ export class UserService {
       `${this.apiUrl}/login`,
       data
     );
-}
+  }
+  //Get logged in user profile
+
+  getProfile()
+  {
+    return this.http.get(
+      `${this.apiUrl}/profile`
+    )
+  }
+
+  //update profile
+
+  updateProfile(data:any)
+  {
+    return this.http.put(
+      `${this.apiUrl}/profile`,
+      data
+    );
+  }
 }

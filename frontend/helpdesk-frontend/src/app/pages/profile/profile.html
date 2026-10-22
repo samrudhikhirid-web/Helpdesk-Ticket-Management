@@ -1,9 +1,6 @@
 <div class="profile-container">
-
     <div class="profile-card">
-
         <div class="profile-header">
-
             <div class="profile-icon">
                 👤
             </div>
@@ -26,7 +23,7 @@
             [(ngModel)]="user.name">
 
             <span *ngIf="!editMode">
-                {{user.name}}
+                {{user?.name}}
             </span>
 
         </div>
@@ -40,7 +37,7 @@
             </label>
 
             <span>
-                {{user.email}}
+                {{user?.email}}
             </span>
 
         </div>
@@ -59,7 +56,7 @@
             [(ngModel)]="user.mobile">
 
             <span *ngIf="!editMode">
-                {{user.mobile}}
+                {{user?.mobile}}
             </span>
 
         </div>
@@ -73,7 +70,7 @@
             </label>
 
             <span>
-                {{user.role}}
+                {{user?.role}}
             </span>
 
         </div>
@@ -86,7 +83,7 @@
             </label>
 
             <span>
-                {{user.createdDate}}
+                {{user?.createdAt | date: 'dd-MM-yyyy'}}
             </span>
         </div>
 
