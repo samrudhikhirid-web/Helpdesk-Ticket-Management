@@ -1,13 +1,13 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { AdminTickets } from './admin-tickets';
 
-describe('AdminTickets', () => {
+describe('AdminTickets', () => { //used to group related test cases for component,service or function
   let component: AdminTickets;
   let fixture: ComponentFixture<AdminTickets>;
 
-  beforeEach(async () => {
+  beforeEach(async () => { 
     await TestBed.configureTestingModule({
-      imports: [AdminTickets],
+      imports: [AdminTickets], //testing admin tickets
     }).compileComponents();
 
     fixture = TestBed.createComponent(AdminTickets);

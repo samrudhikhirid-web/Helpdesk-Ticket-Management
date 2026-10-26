@@ -24,7 +24,6 @@ export class AdminTicketService {
 
         }   // ✅ close getAllTickets here
 
-
         updateTicketStatus(id:string,data:any){
             return this.http.put(
             `http://localhost:5000/api/tickets/update-status/${id}`,

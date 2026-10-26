@@ -121,11 +121,8 @@ name:this.categoryName
 .subscribe(()=>{
 
 alert("Category Updated ✅");
-
 this.categoryName="";
-
 this.editMode=false;
-
 this.loadCategories();
 
 });

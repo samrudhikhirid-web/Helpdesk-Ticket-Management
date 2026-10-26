@@ -10,7 +10,6 @@ const {
     updateTicketStatus
 } = require("../controllers/ticketController");
 
-
 // Create ticket
 
 router.post(
@@ -20,7 +19,6 @@ router.post(
 );
 
 // Get user's tickets
-
 router.get(
     "/my",
     authMiddleware,

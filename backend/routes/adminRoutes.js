@@ -7,12 +7,10 @@ const {
     getAdminStats
 } = require("../controllers/adminController");
 
-
 router.get(
     "/stats",
     authMiddleware,
     getAdminStats
 );
-
 
 module.exports = router;

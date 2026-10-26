@@ -10,20 +10,17 @@ const {
     updateCategory
 } = require("../controllers/categoryController");
 
-
 router.post(
     "/add",
     authMiddleware,
     addCategory
 );
 
-
 router.get(
     "/all",
     authMiddleware,
     getCategories
 );
-
 
 router.delete(
     "/delete/:id",
