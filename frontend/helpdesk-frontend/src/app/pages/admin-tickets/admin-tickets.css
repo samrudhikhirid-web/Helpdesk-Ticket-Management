@@ -18,6 +18,14 @@
     padding: 20px;
     overflow-x: auto;
 }
+.search-box{
+
+    padding:12px;
+    border-radius:8px;
+    border:1px solid #ccc;
+    width:250px;
+    margin-bottom: 20px;
+}
 
 table {
     width: 100%;
@@ -51,4 +59,31 @@ tr:hover {
 
 .view-btn:hover {
     background: #1d4ed8;
+}
+
+.details-card{
+     width:600px;
+    margin:auto;
+    background:white;
+    padding:35px;
+    border-radius:15px;
+    box-shadow:0 5px 20px rgba(0,0,0,0.15);
+}
+
+.detail-row{
+    display:flex;
+    justify-content:space-between;
+    padding:15px 0;
+    border-bottom:1px solid #ddd;
+}
+
+.cancel-btn{
+    width:100%;
+    margin-top:25px;
+    padding:12px;
+    background:#dc2626;
+    color:white;
+    border:none;
+    border-radius:8px;
+    cursor:pointer;
 }

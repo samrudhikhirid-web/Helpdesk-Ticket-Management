@@ -18,9 +18,19 @@ constructor(
  private adminTicketService:AdminTicketService,
  private cdr: ChangeDetectorRef
 ){}
-
+searchText=""
 ngOnInit(){
  this.loadTickets();
+}
+
+filteredTickets(){
+
+    return this.tickets.filter(ticket =>
+
+      ticket.title
+      .toLowerCase()
+      .includes(this.searchText.toLowerCase())
+    );
 }
 
 loadTickets(){

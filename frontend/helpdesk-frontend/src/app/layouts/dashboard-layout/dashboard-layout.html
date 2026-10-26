@@ -7,18 +7,14 @@
       <p>Ticket System</p>
     </div>
 
-
     <nav class="menu">
-
-
-      <!-- Common for both -->
-      <a routerLink="/profile">
-        👤 Profile
-      </a>
-
-
+     
       <!-- User Menu -->
       <div *ngIf="role === 'User'">
+
+         <a routerLink="/profile">
+        👤 Profile
+         </a>
 
         <a routerLink="/dashboard">
           🏠 Dashboard
@@ -50,8 +46,7 @@
         <a routerLink="/categories">
           📂 Manage Categories
         </a>
-
-      
+     
       </div>
 
       <a (click)="logout()">

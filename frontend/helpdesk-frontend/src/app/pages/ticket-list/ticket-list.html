@@ -1,28 +1,21 @@
 <div class="ticket-page">
 
-
     <!-- TABLE SECTION -->
 
     <div *ngIf="!selectedTicket">
-
 
         <h1>
             My Tickets
         </h1>
 
-
         <!-- Filters -->
 
         <div class="filters">
-
-
             <input
                 type="text"
                 placeholder="Search by title"
                 class="search-box"
                 [(ngModel)]="searchText">
-
-
 
             <select [(ngModel)]="selectedStatus">
 
@@ -48,9 +41,6 @@
 
             </select>
 
-
-
-
             <select [(ngModel)]="selectedPriority">
 
                 <option value="">
@@ -70,10 +60,6 @@
                 </option>
 
             </select>
-
-
-
-
 
             <select [(ngModel)]="selectedCategory">
 
@@ -103,20 +89,13 @@
 
             </select>
 
-
         </div>
-
-
-
-
 
         <!-- Ticket Table -->
 
         <div class="table-container">
 
-
             <table>
-
 
                 <thead>
 
@@ -126,31 +105,25 @@
                             ID
                         </th>
 
-
                         <th>
                             Title
                         </th>
-
 
                         <th>
                             Category
                         </th>
 
-
                         <th>
                             Priority
                         </th>
-
 
                         <th>
                             Status
                         </th>
 
-
                         <th>
                             Created By
                         </th>
-
 
                         <th>
                             Action
@@ -158,55 +131,36 @@
 
                     </tr>
 
-
                 </thead>
-
-
-
-
 
                 <tbody>
 
 
                     <tr *ngFor="let ticket of filteredTickets()">
 
-
-
                         <td>
                             {{ticket._id.substring(0,6)}}
                         </td>
-
-
 
                         <td>
                             {{ticket.title}}
                         </td>
 
-
-
                         <td>
                             {{ticket.category}}
                         </td>
-
-
 
                         <td>
                             {{ticket.priority}}
                         </td>
 
-
-
                         <td>
                             {{ticket.status}}
                         </td>
 
-
-
                         <td>
                             {{ticket.createdBy?.email}}
                         </td>
-
-
 
                         <td>
 
@@ -220,25 +174,15 @@
 
                         </td>
 
-
-
                     </tr>
-
 
                 </tbody>
 
-
             </table>
-
 
         </div>
 
-
     </div>
-
-
-
-
 
 
     <!-- DETAILS CARD -->
