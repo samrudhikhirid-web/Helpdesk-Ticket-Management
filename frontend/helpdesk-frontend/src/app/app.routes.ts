@@ -8,6 +8,8 @@ import {CreateTicket } from './pages/create-ticket/create-ticket';
 import {TicketList} from './pages/ticket-list/ticket-list';
 import { Profile } from './pages/profile/profile';
 import { AdminDashboard } from './pages/admin-dashboard/admin-dashboard';
+import { AdminTickets } from './pages/admin-tickets/admin-tickets';
+import { Categories } from './pages/categories/categories';
 import { authGuard } from './auth-guard';
 
 export const routes: Routes = [
@@ -65,12 +67,20 @@ export const routes: Routes = [
         path: 'admin-dashboard',
         component: AdminDashboard,
         canActivate:[authGuard]
+      },
+      {
+        path: 'admin-tickets',
+        component:AdminTickets,
+        canActivate:[authGuard]
+      },
+      {
+        path:'categories',
+        component:Categories,
+        canActivate:[authGuard]
       }
-
     ]
   },
  
-
   {
     path:'**',
     redirectTo:'login'

@@ -1,7 +1,8 @@
-import { Component } from '@angular/core';
+import { Component,OnInit } from '@angular/core';
 import { ReactiveFormsModule, FormGroup, FormControl, Validators } from '@angular/forms';
 import { CommonModule } from '@angular/common';
 import { TicketService } from '../../ticket.service/ticket.service';
+import { CategoryService } from '../../category.service/category.service';
 
 @Component({
   imports: [
@@ -12,12 +13,27 @@ import { TicketService } from '../../ticket.service/ticket.service';
   styleUrl: './create-ticket.css',
   templateUrl: './create-ticket.html',
 })
-export class CreateTicket {
+export class CreateTicket implements OnInit{
 
   constructor(
-    private ticketService:TicketService
+    private ticketService:TicketService,
+    private categoryService:CategoryService
   ){}
 
+  categories:any[] = [];
+  ngOnInit(){
+      this.categoryService.getCategories()
+      .subscribe({
+        next:(response:any)=>{
+          this.categories=response;
+          console.log(this.categories);
+        },
+        error:(error)=>{
+          console.log(error);
+        }
+      });
+    }
+    
   ticketForm = new FormGroup({
     title: new FormControl('', [
       Validators.required,

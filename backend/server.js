@@ -7,6 +7,8 @@ const connectDB = require("./config/db");
 const app = express();
 const userRoutes = require("./routes/userRoutes");
 const ticketRoutes=require("./routes/ticketRoutes");
+const adminRoutes=require("./routes/adminRoutes");
+const categoryRoutes=require("./routes/categoryRoutes");
 // Connect to MongoDB
 connectDB();
 
@@ -16,6 +18,8 @@ app.use(express.json());
 
 app.use("/api/users", userRoutes);
 app.use("/api/tickets", ticketRoutes);
+app.use("/api/admin",adminRoutes);
+app.use("/api/categories",categoryRoutes);
 // Test API
 app.get("/", (req, res) => {
     res.send("Help Desk Backend Server Running");

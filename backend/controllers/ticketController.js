@@ -4,6 +4,11 @@ const Ticket=require("../models/Ticket")
 
 const createTicket=async(req,res)=>
 {
+    if(req.user.role === "Admin"){
+    return res.status(403).json({
+        message:"Admin cannot create tickets"
+    });
+}
     try{
         const{
             title,
@@ -72,8 +77,67 @@ const getMyTickets = async (req, res) => {
 
     }
 };
+// Get All Tickets (Admin)
 
+const getAllTickets = async(req,res)=>{
+
+    try{
+
+        const tickets = await Ticket.find()
+        .populate("createdBy","name email");
+
+        res.json(tickets);
+
+    }
+    catch(error){
+
+        res.status(500).json({
+            message:error.message
+        });
+
+    }
+
+};
+const updateTicketStatus = async(req,res)=>{
+
+    try{
+
+        const ticket = await Ticket.findByIdAndUpdate(
+
+            req.params.id,
+
+            {
+                status:req.body.status
+            },
+
+            {
+                new:true
+            }
+
+        );
+
+
+        res.json({
+
+            message:"Ticket status updated",
+            ticket
+
+        });
+
+
+    }
+    catch(error){
+
+        res.status(500).json({
+            message:error.message
+        });
+
+    }
+
+};
 module.exports = {
     createTicket,
-    getMyTickets
+    getMyTickets,
+    getAllTickets,
+    updateTicketStatus
 };

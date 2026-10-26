@@ -1,0 +1,62 @@
+<div class="category-page">
+    <h1>
+    Manage Categories
+    </h1>
+
+<div class="add-box">
+        <input
+        type="text"
+        placeholder="Enter category name"
+        [(ngModel)]="categoryName">
+
+        <button *ngIf="!editMode"
+        (click)="addCategory()">
+        Add Category
+        </button>
+
+        <button *ngIf="editMode"
+        (click)="updateCategory()">
+        Update Category
+        </button>
+</div>
+
+<table>
+
+<thead>
+<tr>
+    <th>
+    Category Name
+    </th>
+
+    <th>
+    Action
+    </th>
+</tr>
+</thead>
+
+<tbody>
+
+<tr *ngFor="let category of categories">
+
+    <td>
+    {{category.name}}
+    </td>
+
+<td>
+    <button
+    class="edit-btn"
+    (click)="editCategory(category)">
+    Edit
+    </button>
+
+    <button
+    class="delete-btn"
+    (click)="deleteCategory(category._id)">
+    Delete
+    </button>
+</td>
+</tr>
+
+</tbody>
+</table>
+</div>

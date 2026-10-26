@@ -19,4 +19,10 @@ export class TicketService {
   {
     return this.http.get(`${this.apiUrl}/my`);
   }
+  updateTicketStatus(id:string, data:any){
+    return this.http.put(
+    `http://localhost:5000/api/tickets/update-status/${id}`,
+    data
+    );
+    }
 }

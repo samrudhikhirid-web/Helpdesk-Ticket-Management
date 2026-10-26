@@ -1,4 +1,5 @@
-import { Component } from '@angular/core';
+import { Component, OnInit, ChangeDetectorRef } from '@angular/core';
+import { AdminService } from '../../admin.service/admin.service';
 import { CommonModule } from '@angular/common';
 
 @Component({
@@ -10,25 +11,19 @@ import { CommonModule } from '@angular/common';
   templateUrl: './admin-dashboard.html',
   styleUrl: './admin-dashboard.css'
 })
-export class AdminDashboard {
+export class AdminDashboard implements OnInit{
+  stats:any={}
+  constructor(
+    private adminService:AdminService,
+    private cdr: ChangeDetectorRef
+  ){}
+  ngOnInit(){
 
-  stats = [
-    {
-      title:"Total Tickets",
-      count:120
-    },
-    {
-      title:"Open Tickets",
-      count:40
-    },
-    {
-      title:"In Progress",
-      count:35
-    },
-    {
-      title:"Resolved",
-      count:45
-    }
-  ];
+    this.adminService.getStats()
+    .subscribe((response:any)=>{
 
+      this.stats=response;
+      this.cdr.detectChanges();
+    });
+  }
 }

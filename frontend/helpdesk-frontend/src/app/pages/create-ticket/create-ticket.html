@@ -48,11 +48,17 @@
             <label>Category</label>
 
             <select formControlName="category">
-
                 <option value="">
-                    Select Category
+                Select Category
                 </option>
 
+                <option 
+                *ngFor="let category of categories"
+                [value]="category.name">
+
+                {{category.name}}
+
+                </option>
             </select>
 
             <label>Priority</label>

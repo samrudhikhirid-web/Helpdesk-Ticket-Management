@@ -1,26 +1,45 @@
-<div class="admin-page">
-    <h1>
-        Admin Dashboard
-    </h1>
+<div class="admin-dashboard">
 
-    <p>
-        Manage Help Desk System
-    </p>
+<h1>
+  Admin Dashboard
+</h1>
 
-    <div class="cards">
 
-        <div class="card" *ngFor="let item of stats">
+<div class="cards">
 
-            <h2>
-                {{item.count}}
-            </h2>
 
-            <p>
-                {{item.title}}
-            </p>
+<div class="card">
+<h2>
+{{stats.totalUsers}}
+</h2>
+<p>Total Users</p>
+</div>
 
-        </div>
 
-    </div>
+<div class="card">
+<h2>
+{{stats.totalTickets}}
+</h2>
+<p>Total Tickets</p>
+</div>
+
+
+<div class="card">
+<h2>
+{{stats.openTickets}}
+</h2>
+<p>Open Tickets</p>
+</div>
+
+
+<div class="card">
+<h2>
+{{stats.resolvedTickets}}
+</h2>
+<p>Resolved Tickets</p>
+</div>
+
+
+</div>
 
 </div>

@@ -59,33 +59,32 @@ const loginUser = async (req, res) => {
             email,
             password
         } = req.body;
-
+        console.log("Email:", email);
+        console.log("Password:", password);
         // Find user by email
         if(email === "admin@gmail.com" && password === "admin123")
-{
-
-    const token = jwt.sign(
         {
-            id:"admin",
-            role:"Admin"
-        },
-        "helpdesk_secret_key",
-        {
-            expiresIn:"1h"
-        }
-    );
+            const token = jwt.sign(
+                {
+                    id:"admin",
+                    role:"Admin"
+                },
+                "helpdesk_secret_key",
+                {
+                    expiresIn:"1h"
+                }
+            );
 
-
-    return res.json({
-        message:"Login Successful",
-        token,
-        user:{
-            name:"Admin",
-            email:"admin@gmail.com",
-            role:"Admin"
+            return res.json({
+                message:"Login Successful",
+                token,
+                user:{
+                    name:"Admin",
+                    email:"admin@gmail.com",
+                    role:"Admin"
+                }
+            });
         }
-    });
-}
         const user = await User.findOne({
             email
         });

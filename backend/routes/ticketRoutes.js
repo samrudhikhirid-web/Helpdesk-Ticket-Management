@@ -5,7 +5,9 @@ const authMiddleware = require("../middleware/authMiddleware");
 
 const {
     createTicket,
-    getMyTickets
+    getMyTickets,
+    getAllTickets,
+    updateTicketStatus
 } = require("../controllers/ticketController");
 
 
@@ -23,5 +25,15 @@ router.get(
     "/my",
     authMiddleware,
     getMyTickets
+);
+router.get(
+    "/all",
+    authMiddleware,
+    getAllTickets
+);
+router.put(
+    "/update-status/:id",
+    authMiddleware,
+    updateTicketStatus
 );
 module.exports = router;
