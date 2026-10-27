@@ -9,5 +9,5 @@ import { RouterOutlet, RouterLink } from '@angular/router';
   templateUrl: './app.html',
 })
 export class App {
-  protected readonly title = signal('helpdesk-frontend');
+  protected readonly title = signal('helpdesk-frontend'); //automatically detects changes
 }

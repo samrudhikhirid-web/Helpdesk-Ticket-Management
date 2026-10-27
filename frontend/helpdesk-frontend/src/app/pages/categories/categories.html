@@ -1,62 +1,145 @@
+
 <div class="category-page">
-    <h1>
-    Manage Categories
-    </h1>
 
-<div class="add-box">
-        <input
-        type="text"
-        placeholder="Enter category name"
-        [(ngModel)]="categoryName">
 
-        <button *ngIf="!editMode"
-        (click)="addCategory()">
-        Add Category
-        </button>
+    <!-- Header -->
 
-        <button *ngIf="editMode"
-        (click)="updateCategory()">
-        Update Category
-        </button>
-</div>
+    <div class="page-header">
 
-<table>
+        <div>
+            <h1>
+                Manage Categories
+            </h1>
 
-<thead>
-<tr>
-    <th>
-    Category Name
-    </th>
+            <p>
+                Add, update and manage ticket categories
+            </p>
+        </div>
 
-    <th>
-    Action
-    </th>
-</tr>
-</thead>
 
-<tbody>
+        <div class="header-icon">
+            ⚙️
+        </div>
 
-<tr *ngFor="let category of categories">
+    </div>
 
-    <td>
-    {{category.name}}
-    </td>
+    <!-- Add Category Card -->
 
-<td>
-    <button
-    class="edit-btn"
-    (click)="editCategory(category)">
-    Edit
-    </button>
+    <div class="add-card">
 
-    <button
-    class="delete-btn"
-    (click)="deleteCategory(category._id)">
-    Delete
-    </button>
-</td>
-</tr>
+        <h2>
+            {{editMode ? 'Update Category' : 'Add New Category'}}
+        </h2>
 
-</tbody>
-</table>
+        <div class="add-box">
+
+            <input
+            type="text"
+            placeholder="Enter category name"
+            [(ngModel)]="categoryName">
+
+            <button 
+            *ngIf="!editMode"
+            class="primary-btn"
+            (click)="addCategory()">
+
+                Add Category
+
+            </button>
+
+            <button
+            *ngIf="editMode"
+            class="update-btn"
+            (click)="updateCategory()">
+                Update Category
+            </button>
+
+        </div>
+
+    </div>
+
+    <!-- Category Table -->
+
+    <div class="table-card">
+
+        <div class="table-title">
+
+            <h2>
+                Category List
+            </h2>
+
+            <span>
+                Total: {{categories.length}}
+            </span>
+
+        </div>
+
+        <div class="table-container">
+
+            <table>
+
+                <thead>
+
+                    <tr>
+
+                        <th>
+                            Category Name
+                        </th>
+
+                        <th>
+                            Actions
+                        </th>
+
+                    </tr>
+
+                </thead>
+
+                <tbody>
+
+                    <tr *ngFor="let category of categories">
+
+                        <td>
+                            {{category.name}}
+                        </td>
+
+                        <td>
+
+                            <button
+                            class="edit-btn"
+                            (click)="editCategory(category)">
+
+                                Edit
+
+                            </button>
+
+                            <button
+                            class="delete-btn"
+                            (click)="deleteCategory(category._id)">
+
+                                Delete
+
+                            </button>
+
+                        </td>
+
+                    </tr>
+
+                    <tr *ngIf="categories.length===0">
+
+                        <td colspan="2">
+
+                            No categories available
+
+                        </td>
+
+                    </tr>
+
+                </tbody>
+
+            </table>
+
+        </div>
+
+    </div>
+
 </div>

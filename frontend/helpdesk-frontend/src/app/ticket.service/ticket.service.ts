@@ -25,4 +25,10 @@ export class TicketService {
     data
     );
     }
+    getPendingTickets(){
+      return this.http.get(
+      'http://localhost:5000/api/tickets/pending'
+      );
+
+      }
 }

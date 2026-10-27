@@ -1,6 +1,10 @@
 const mongoose=require("mongoose")
 
 const ticketSchema = new mongoose.Schema({
+    ticketId:{
+        type:String,
+        unique:true
+    },
     title:
     {
         type: String,

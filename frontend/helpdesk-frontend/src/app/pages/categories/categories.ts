@@ -18,30 +18,22 @@ styleUrl:'./categories.css'
 
 })
 
-
 export class Categories implements OnInit{
 
 
 categoryName="";
-
 categories:any[]=[];
-
-
 
 constructor(
  private categoryService:CategoryService,
  private cdr: ChangeDetectorRef
 ){}
 
-
-
 ngOnInit(){
 
  this.loadCategories();
 
 }
-
-
 
 loadCategories(){
 
@@ -51,39 +43,28 @@ loadCategories(){
  this.categories=response;
  this.cdr.detectChanges();
  });
-
-
 }
 
-
-
 addCategory(){
-
  if(this.categoryName.trim()=="")
  {
   return;
  }
 
-
  this.categoryService.addCategory({
-
- name:this.categoryName
+    name:this.categoryName
 
  })
  .subscribe(()=>{
 
  alert("Category Added ✅");
-
- this.categoryName="";
-
- this.loadCategories();
+    this.categoryName="";
+    this.loadCategories();
 
  });
 
 
 }
-
-
 
 deleteCategory(id:string){
 
@@ -100,30 +81,25 @@ selectedId="";
 
 editCategory(category:any){
 
-this.categoryName=category.name;
-
-this.selectedId=category._id;
-
-this.editMode=true;
+    this.categoryName=category.name;
+    this.selectedId=category._id;
+    this.editMode=true;
 
 }
-
-
 
 updateCategory(){
 
-this.categoryService.updateCategory(
-this.selectedId,
-{
-name:this.categoryName
-}
+    this.categoryService.updateCategory(
+    this.selectedId,
+    {
+    name:this.categoryName
+    }
 )
 .subscribe(()=>{
-
-alert("Category Updated ✅");
-this.categoryName="";
-this.editMode=false;
-this.loadCategories();
+    alert("Category Updated ✅");
+    this.categoryName="";
+    this.editMode=false;
+    this.loadCategories();
 
 });
 

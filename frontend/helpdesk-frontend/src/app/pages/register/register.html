@@ -1,105 +1,76 @@
 <div class="register-container">
 
-
-<div class="register-card">
-
-
-<h1>Create Account</h1>
-
-<p>Create your Help Desk account</p>
+      <div class="register-card">
+            <h1>Create Account</h1>
+            <p>Create your Help Desk account</p>
+            <form [formGroup]="registerForm" 
+                  (ngSubmit)="submitRegister()">  <!-- Event Binding handles submission of form-->
 
 
 
-<form [formGroup]="registerForm" 
-      (ngSubmit)="submitRegister()">
+      <label>Name</label>
+
+      <input 
+      type="text"
+      placeholder="Enter your name"
+      formControlName="name">
 
 
+      <small *ngIf="registerForm.controls.name.invalid 
+      && registerForm.controls.name.touched">
+      Name should contain 3 to 30 characters
+      </small>
 
-<label>Name</label>
+      <label>Email</label>
 
-<input 
-type="text"
-placeholder="Enter your name"
-formControlName="name"
->
-
-
-<small *ngIf="registerForm.controls.name.invalid 
-&& registerForm.controls.name.touched">
-
-Name should contain 3 to 30 characters
-
-</small>
+      <input 
+      type="email"
+      placeholder="Enter email"
+      formControlName="email">
 
 
+      <small *ngIf="registerForm.controls.email.invalid 
+      && registerForm.controls.email.touched">
+      Enter a valid email address
+      </small>
 
 
-<label>Email</label>
+      <label>Mobile Number</label>
 
-<input 
-type="email"
-placeholder="Enter email"
-formControlName="email"
->
+      <input
+      type="text"
+      placeholder="Enter 10 digit mobile number"
+      formControlName="mobile">
 
+      <small *ngIf="registerForm.controls.mobile.invalid 
+      && registerForm.controls.mobile.touched">
+      Mobile number must contain exactly 10 digits
+      </small>
 
-<small *ngIf="registerForm.controls.email.invalid 
-&& registerForm.controls.email.touched">
+      <label>Password</label>
 
-Enter a valid email address
+            <input 
+            type="password"
+            placeholder="Enter password"
+            formControlName="password">
 
-</small>
+            <small *ngIf="registerForm.controls.password.invalid 
+            && registerForm.controls.password.touched">
+            Password must contain minimum 6 characters
+            </small>
 
+            <button type="submit">
+            Register
+            </button>
 
-<label>Mobile Number</label>
-
-<input
-type="text"
-placeholder="Enter 10 digit mobile number"
-formControlName="mobile"
->
-
-<small *ngIf="registerForm.controls.mobile.invalid 
-&& registerForm.controls.mobile.touched">
-
-Mobile number must contain exactly 10 digits
-
-</small>
-
-<label>Password</label>
-
-<input 
-type="password"
-placeholder="Enter password"
-formControlName="password"
->
-
-<small *ngIf="registerForm.controls.password.invalid 
-&& registerForm.controls.password.touched">
-
-Password must contain minimum 6 characters
-
-</small>
-
-<button type="submit">
-Register
-</button>
-
-
-
-<p>
-Already have account?
-<a routerLink="/login">
-Login
-</a>
-</p>
-
+            <p>
+            Already have account?
+            <a routerLink="/login">
+            Login
+            </a>
+            </p>
 
 
 </form>
-
-
 </div>
-
-
 </div>

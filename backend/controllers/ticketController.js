@@ -16,8 +16,11 @@ const createTicket=async(req,res)=>
             category,
             priority
         }=req.body;
+    
+        const ticketId = "TKT-" + Date.now();
 
         const ticket=new Ticket({
+            ticketId,
             title,
             description,
             category,
@@ -135,9 +138,38 @@ const updateTicketStatus = async(req,res)=>{
     }
 
 };
+const getPendingTickets = async(req,res)=>{
+
+    try{
+
+        const tickets = await Ticket.find({
+            status:{
+                $nin:["Resolved","Closed"]
+            }
+        })
+        .sort({
+            createdDate:-1
+        })
+        .limit(5)
+        .populate("createdBy","name email");
+
+
+        res.json(tickets);
+
+    }
+    catch(error){
+
+        res.status(500).json({
+            message:error.message
+        });
+
+    }
+
+};
 module.exports = {
     createTicket,
     getMyTickets,
     getAllTickets,
-    updateTicketStatus
+    updateTicketStatus,
+    getPendingTickets
 };

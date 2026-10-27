@@ -1,45 +1,290 @@
 <div class="admin-dashboard">
 
-<h1>
-  Admin Dashboard
-</h1>
+
+    <!-- Header -->
+
+    <div class="top-section">
+
+        <div>
+            <h1>
+                Admin Overview
+            </h1>
+
+            <p>
+                Monitor support activities and manage your help desk system
+            </p>
+        </div>
 
 
-<div class="cards">
+        <div class="admin-profile">
+
+            <div class="profile-circle">
+                A
+            </div>
+
+            <div>
+                <h3>
+                    Admin
+                </h3>
+
+                <span>
+                    System Manager
+                </span>
+            </div>
+
+        </div>
+
+    </div>
 
 
-<div class="card">
-<h2>
-{{stats.totalUsers}}
-</h2>
-<p>Total Users</p>
-</div>
 
 
-<div class="card">
-<h2>
-{{stats.totalTickets}}
-</h2>
-<p>Total Tickets</p>
-</div>
+    <!-- Statistics Cards -->
+
+    <div class="cards">
 
 
-<div class="card">
-<h2>
-{{stats.openTickets}}
-</h2>
-<p>Open Tickets</p>
-</div>
+        <div class="card">
+
+            <div class="card-icon blue">
+                👥
+            </div>
+
+            <div>
+
+                <h2>
+                    {{stats.totalUsers}}
+                </h2>
+
+                <p>
+                    Total Users
+                </p>
+
+            </div>
+
+        </div>
 
 
-<div class="card">
-<h2>
-{{stats.resolvedTickets}}
-</h2>
-<p>Resolved Tickets</p>
-</div>
+
+        <div class="card">
+
+            <div class="card-icon purple">
+                🎫
+            </div>
+
+            <div>
+
+                <h2>
+                    {{stats.totalTickets}}
+                </h2>
+
+                <p>
+                    Total Tickets
+                </p>
+
+            </div>
+
+        </div>
 
 
-</div>
+
+
+        <div class="card">
+
+            <div class="card-icon orange">
+                ⏳
+            </div>
+
+            <div>
+
+                <h2>
+                    {{stats.openTickets}}
+                </h2>
+
+                <p>
+                    Pending Tickets
+                </p>
+
+            </div>
+
+        </div>
+
+
+
+
+        <div class="card">
+
+            <div class="card-icon green">
+                ✓
+            </div>
+
+            <div>
+
+                <h2>
+                    {{stats.resolvedTickets}}
+                </h2>
+
+                <p>
+                    Resolved Tickets
+                </p>
+
+            </div>
+
+        </div>
+
+
+    </div>
+
+
+
+
+
+    <!-- Pending Tickets Table -->
+
+
+    <div class="ticket-section">
+
+
+        <div class="section-title">
+
+            <h2>
+                Recent Pending Tickets
+            </h2>
+
+           
+        </div>
+
+
+
+        <div class="table-container">
+
+
+            <table>
+
+
+                <thead>
+
+                    <tr>
+
+                        <th>
+                            Ticket ID
+                        </th>
+
+
+                        <th>
+                            User
+                        </th>
+
+
+                        <th>
+                            Category
+                        </th>
+
+
+                        <th>
+                            Priority
+                        </th>
+
+
+                        <th>
+                            Status
+                        </th>
+
+
+                        <th>
+                            Created Date
+                        </th>
+
+
+                    </tr>
+
+
+                </thead>
+
+
+
+
+                <tbody>
+
+
+                    <tr *ngFor="let ticket of pendingTickets">
+
+
+                        <td>
+                            {{ticket.ticketId}}
+                        </td>
+
+
+                        <td>
+                            {{ticket.createdBy.name}}
+                        </td>
+
+
+                        <td>
+                            {{ticket.category}}
+                        </td>
+
+
+                        <td>
+
+                            <span class="priority">
+
+                                {{ticket.priority}}
+
+                            </span>
+
+                        </td>
+
+
+
+                        <td>
+
+                            <span class="status">
+
+                                {{ticket.status}}
+
+                            </span>
+
+                        </td>
+
+
+
+
+                        <td>
+
+                            {{ticket.createdDate | date:'dd MMM yyyy'}}
+
+                        </td>
+
+
+                    </tr>
+
+
+
+                    <tr *ngIf="pendingTickets.length===0">
+
+                        <td colspan="6">
+
+                            No pending tickets
+
+                        </td>
+
+                    </tr>
+
+
+                </tbody>
+
+
+            </table>
+
+
+        </div>
+
+
+
+    </div>
+
+
+
 
 </div>

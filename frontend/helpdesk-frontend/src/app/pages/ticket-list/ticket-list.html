@@ -63,29 +63,17 @@
 
             <select [(ngModel)]="selectedCategory">
 
-                <option value="">
-                    All Category
-                </option>
+                        <option value="">
+                            All Category
+                        </option>
 
-                <option>
-                    Technical
-                </option>
+                        <option
+                            *ngFor="let category of categories"
+                            [value]="category.name">
 
-                <option>
-                    Access
-                </option>
+                            {{ category.name }}
 
-                <option>
-                    Hardware
-                </option>
-
-                <option>
-                    Software
-                </option>
-
-                <option>
-                    Other
-                </option>
+                        </option>          
 
             </select>
 
@@ -139,7 +127,7 @@
                     <tr *ngFor="let ticket of filteredTickets()">
 
                         <td>
-                            {{ticket._id.substring(0,6)}}
+                            {{ticket.ticketId}}
                         </td>
 
                         <td>

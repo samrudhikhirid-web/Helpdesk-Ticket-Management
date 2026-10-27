@@ -1,130 +1,358 @@
-.category-page {
-  padding: 30px;
+
+.category-page{
+
+    padding:35px;
+
+    background:#f4f7fb;
+
+    min-height:100vh;
+
 }
 
-/* Page Heading */
 
-.category-page h1 {
-  font-size: 32px;
-  margin-bottom: 20px;
+
+/* Header */
+
+
+.page-header{
+
+    background:linear-gradient(135deg,#0f172a,#1e3a8a);
+
+    color:white;
+
+    padding:30px;
+
+    border-radius:20px;
+
+    display:flex;
+
+    justify-content:space-between;
+
+    align-items:center;
+
+    box-shadow:0 10px 25px rgba(0,0,0,.15);
+
 }
 
-/* Add Category Section */
 
-.add-box {
-  display: flex;
-  gap: 15px;
-  margin-bottom: 30px;
+
+.page-header h1{
+
+    margin:0;
+
+    font-size:32px;
+
 }
 
-input {
-  padding: 10px;
-  width: 300px;
-  border: 1px solid #cbd5e1;
-  border-radius: 5px;
-  outline: none;
+
+
+.page-header p{
+
+    margin-top:8px;
+
+    opacity:.85;
+
 }
 
-input:focus {
-  border-color: #2563eb;
+
+
+.header-icon{
+
+    font-size:65px;
+
 }
 
-/* Common Button */
 
-button {
-  padding: 10px 20px;
-  border: none;
-  border-radius: 5px;
-  cursor: pointer;
-  color: white;
-  font-size: 14px;
+
+
+
+/* Add Card */
+
+
+.add-card{
+
+    background:white;
+
+    margin-top:30px;
+
+    padding:25px;
+
+    border-radius:18px;
+
+    box-shadow:0 6px 18px rgba(0,0,0,.08);
+
 }
 
-/* Add / Update Button */
 
-.add-box button {
-  background: #2563eb;
+
+.add-card h2{
+
+    margin-bottom:20px;
+
+    color:#111827;
+
 }
 
-.add-box button:hover {
-  background: #1d4ed8;
+
+
+
+.add-box{
+
+    display:flex;
+
+    gap:15px;
+
 }
+
+
+
+input{
+
+    width:350px;
+
+    padding:13px 15px;
+
+    border:1px solid #cbd5e1;
+
+    border-radius:10px;
+
+    font-size:15px;
+
+    outline:none;
+
+}
+
+
+
+input:focus{
+
+    border-color:#2563eb;
+
+    box-shadow:0 0 0 3px rgba(37,99,235,.15);
+
+}
+
+
+
+
+/* Buttons */
+
+
+button{
+
+    border:none;
+
+    color:white;
+
+    padding:12px 22px;
+
+    border-radius:10px;
+
+    cursor:pointer;
+
+    transition:.3s;
+
+    font-size:14px;
+
+}
+
+
+
+.primary-btn{
+
+    background:#15357b;
+
+}
+
+
+.primary-btn:hover{
+
+    background:#2c5bda;
+
+}
+
+
+
+.update-btn{
+
+    background:#16a34a;
+
+}
+
+
+.update-btn:hover{
+
+    background:#15803d;
+
+}
+
+
+
+
+/* Table Card */
+
+
+.table-card{
+
+    background:white;
+
+    margin-top:30px;
+
+    padding:25px;
+
+    border-radius:18px;
+
+    box-shadow:0 6px 18px rgba(0,0,0,.08);
+
+}
+
+
+
+.table-title{
+
+    display:flex;
+
+    justify-content:space-between;
+
+    align-items:center;
+
+    margin-bottom:20px;
+
+}
+
+
+
+.table-title h2{
+
+    color:#111827;
+
+}
+
+
+
+.table-title span{
+
+    background:#dbeafe;
+
+    color:#1d4ed8;
+
+    padding:7px 15px;
+
+    border-radius:20px;
+
+}
+
+
+
+
 
 /* Table */
 
-.category-table {
-  width: 100%;
-  border-collapse: collapse;
-  margin-top: 20px;
-  background: white;
+
+table{
+
+    width:100%;
+
+    border-collapse:collapse;
+
 }
 
-/* Table Header */
 
-.category-table th {
-  background: #0f172a;
-  color: white;
-  padding: 14px;
-  border: 1px solid #ddd;
-  text-align: center;
+
+thead{
+
+    background:#0f172a;
+
+    color:white;
+
 }
 
-/* Table Data */
 
-.category-table td {
-  padding: 14px;
-  border: 1px solid #ddd;
-  text-align: center;
+
+th{
+
+    padding:15px;
+
 }
 
-/* Row Hover */
 
-.category-table tbody tr:hover {
-  background: #f8fafc;
+
+td{
+
+    padding:15px;
+
+    text-align:center;
+
+    border-bottom:1px solid #e5e7eb;
+
 }
 
-/* Action Buttons Container */
 
-.action-buttons {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  gap: 15px;
+
+tbody tr:hover{
+
+    background:#eff6ff;
+
 }
 
-/* Edit Button */
 
-.edit-btn {
-  background: #2563eb;
+
+
+
+/* Action Buttons */
+
+
+.edit-btn{
+
+    background:#2563eb;
+
+    margin-right:10px;
+
 }
 
-.edit-btn:hover {
-  background: #1d4ed8;
+
+
+.edit-btn:hover{
+
+    background:#1d4ed8;
+
 }
 
-/* Delete Button */
 
-.delete-btn {
-  background: #dc2626;
+
+.delete-btn{
+
+    background:#dc2626;
+
 }
 
-.delete-btn:hover {
-  background: #b91c1c;
+
+
+.delete-btn:hover{
+
+    background:#b91c1c;
+
 }
 
-/* Responsive */
+
+
+
 
 @media(max-width:768px){
-  .add-box {
-    flex-direction: column;
-  }
 
-  input {
-    width: 100%;
-  }
 
-  .category-table {
-    font-size: 14px;
-  }
+.add-box{
+
+    flex-direction:column;
+
+}
+
+
+input{
+
+    width:100%;
+
+}
+
 
 }

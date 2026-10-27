@@ -4,14 +4,12 @@ import { RouterLink ,Router} from '@angular/router';
 import { CommonModule } from '@angular/common';
 import { UserService } from '../../user.service/user.service';
 
-
 @Component({
   selector: 'app-register',
   imports: [
     CommonModule,
     ReactiveFormsModule,
     RouterLink,
-   
   ],
   templateUrl: './register.html',
   styleUrl: './register.css'
@@ -56,7 +54,7 @@ export class Register {
     this.userService.registerUser(
       this.registerForm.value
     )
-    .subscribe({
+    .subscribe({  //angular waits for backend response
 
       next:(response:any)=>{
 

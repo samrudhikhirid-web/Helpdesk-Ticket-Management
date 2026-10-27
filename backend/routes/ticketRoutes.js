@@ -7,7 +7,8 @@ const {
     createTicket,
     getMyTickets,
     getAllTickets,
-    updateTicketStatus
+    updateTicketStatus,
+    getPendingTickets
 } = require("../controllers/ticketController");
 
 // Create ticket
@@ -33,5 +34,10 @@ router.put(
     "/update-status/:id",
     authMiddleware,
     updateTicketStatus
+);
+router.get(
+    "/pending",
+    authMiddleware,
+    getPendingTickets
 );
 module.exports = router;

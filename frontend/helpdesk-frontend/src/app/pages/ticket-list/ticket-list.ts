@@ -2,6 +2,7 @@ import { Component, OnInit, ChangeDetectorRef} from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { TicketService } from '../../ticket.service/ticket.service';
+import { CategoryService } from '../../category.service/category.service';
 
 @Component({
   selector: 'app-ticket-list',
@@ -16,6 +17,7 @@ export class TicketList implements OnInit {
 
   constructor(
     private ticketService: TicketService,
+    private categoryService:CategoryService,
     private cdr: ChangeDetectorRef
   ) {}
 
@@ -26,9 +28,11 @@ export class TicketList implements OnInit {
   selectedTicket:any = null;
 
   tickets:any[] = [];
-  
-  ngOnInit(){
+  categories:any[]=[];
 
+  ngOnInit(){
+    
+    this.loadCategories();
     this.ticketService.getMyTickets()
     .subscribe({
 
@@ -49,6 +53,16 @@ export class TicketList implements OnInit {
     });
 
   }
+  loadCategories() {
+
+  this.categoryService.getCategories()
+    .subscribe((response: any) => {
+
+      this.categories = response;
+
+    });
+
+}
   filteredTickets(){
 
     return this.tickets.filter(ticket =>

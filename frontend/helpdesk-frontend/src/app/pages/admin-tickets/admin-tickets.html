@@ -1,21 +1,47 @@
 <div class="admin-ticket-page">
 
-    <h1>
-        Manage Tickets
-    </h1>
+    <!-- Header -->
 
-    <p>
-        View and manage all user support tickets
-    </p>
+    <div class="page-header">
 
-    <div *ngIf="!selectedTicket" class="table-container">
-         <div class="filters">
-            <input
-                type="text"
-                placeholder="Search by title"
-                class="search-box"
-                [(ngModel)]="searchText">
+        <div>
+            <h1>
+                Manage Tickets
+            </h1>
+
+            <p>
+                View, monitor and update user support requests
+            </p>
         </div>
+
+
+        <div class="header-icon">
+            🎫
+        </div>
+
+    </div>
+
+    <!-- Ticket Table -->
+
+
+    <div *ngIf="!selectedTicket" class="ticket-card">
+
+
+        <!-- Search -->
+
+        <div class="filter-section">
+
+            <input
+            type="text"
+            placeholder="Search ticket title..."
+            class="search-box"
+            [(ngModel)]="searchText">
+
+
+        </div>
+
+        <div class="table-container">
+
         <table>
 
             <thead>
@@ -23,32 +49,39 @@
                 <tr>
 
                     <th>
-                        ID
+                        Ticket ID
                     </th>
+
 
                     <th>
                         Title
                     </th>
 
-                    <th>
-                        Created By
-                    </th>
 
                     <th>
                         Category
                     </th>
 
+
                     <th>
                         Priority
                     </th>
+
 
                     <th>
                         Status
                     </th>
 
+
+                    <th>
+                        Created By
+                    </th>
+
+
                     <th>
                         Action
                     </th>
+
 
                 </tr>
 
@@ -56,54 +89,61 @@
 
             <tbody>
 
+
                 <tr *ngFor="let ticket of filteredTickets()">
 
                     <td>
-                        {{ticket._id}}
+                        {{ticket.ticketId}}
                     </td>
+
+
 
                     <td>
                         {{ticket.title}}
                     </td>
 
-                    <td>
-
-                        {{ticket.createdBy?.name}}
-                        <br>
-
-                        {{ticket.createdBy?.email}}
-
-                    </td>
 
                     <td>
                         {{ticket.category}}
                     </td>
 
                     <td>
-                        {{ticket.priority}}
+
+                        <span class="priority">
+
+                            {{ticket.priority}}
+
+                        </span>
+
                     </td>
 
                     <td>
 
                         <select
                         [(ngModel)]="ticket.status"
-                        (change)="updateStatus(ticket)">
+                        (change)="updateStatus(ticket)"
+                        class="status-select">
 
-                        <option value="Open">
-                        Open
-                        </option>
 
-                        <option value="In Progress">
-                        In Progress
-                        </option>
+                            <option>
+                                Open
+                            </option>
 
-                        <option value="Resolved">
-                        Resolved
-                        </option>
 
-                        <option value="Closed">
-                        Closed
-                        </option>
+                            <option>
+                                In Progress
+                            </option>
+
+
+                            <option>
+                                Resolved
+                            </option>
+
+
+                            <option>
+                                Closed
+                            </option>
+
 
                         </select>
 
@@ -111,117 +151,147 @@
 
                     <td>
 
-                        <button class="view-btn" 
-                        (click)="viewDetails(ticket)">
-                            View
-                        </button>
+                        {{ticket.createdBy?.name}}
+
+                        <br>
+
+                        <small>
+                            {{ticket.createdBy?.email}}
+                        </small>
+
 
                     </td>
 
+                    <td>
+
+                        <button
+                        class="view-btn"
+                        (click)="viewDetails(ticket)">
+
+                            View
+
+                        </button>
+
+
+                    </td>
+
+
                 </tr>
+
 
             </tbody>
 
+
         </table>
 
-    </div>
 
-</div>
-<div *ngIf="selectedTicket" class="details-card">
+        </div>
 
-
-    <h1>
-        Ticket Details
-    </h1>
-
-
-    <div class="detail-row">
-
-        <b>
-            Title:
-        </b>
-
-        <span>
-            {{selectedTicket.title}}
-        </span>
 
     </div>
 
-
-    <div class="detail-row">
-
-        <b>
-            Description:
-        </b>
-
-        <span>
-            {{selectedTicket.description}}
-        </span>
-
-    </div>
+    <!-- Details -->
 
 
-    <div class="detail-row">
-
-        <b>
-            Created By:
-        </b>
-
-        <span>
-            {{selectedTicket.createdBy?.name}}
-            <br>
-            {{selectedTicket.createdBy?.email}}
-        </span>
-
-    </div>
+    <div *ngIf="selectedTicket" class="details-card">
 
 
-    <div class="detail-row">
+        <div class="details-header">
 
-        <b>
-            Category:
-        </b>
-
-        <span>
-            {{selectedTicket.category}}
-        </span>
-
-    </div>
+            <h1>
+                Ticket Details
+            </h1>
 
 
-    <div class="detail-row">
-
-        <b>
-            Priority:
-        </b>
-
-        <span>
-            {{selectedTicket.priority}}
-        </span>
-
-    </div>
+            <span>
+                {{selectedTicket.ticketId}}
+            </span>
 
 
-    <div class="detail-row">
+        </div>
 
-        <b>
-            Status
-        </b>
+        <div class="detail-row">
 
-        <span>
-            {{selectedTicket.status}}
-        </span>
+            <b>
+                Title
+            </b>
 
-    </div>
+            <span>
+                {{selectedTicket.title}}
+            </span>
 
+        </div>
 
-    <button
+        <div class="detail-row">
+
+            <b>
+                Description
+            </b>
+
+            <span>
+                {{selectedTicket.description}}
+            </span>
+
+        </div>
+
+        <div class="detail-row">
+
+            <b>
+                Created By
+            </b>
+
+            <span>
+                {{selectedTicket.createdBy?.name}}
+                <br>
+                {{selectedTicket.createdBy?.email}}
+            </span>
+
+        </div>
+
+        <div class="detail-row">
+
+            <b>
+                Category
+            </b>
+
+            <span>
+                {{selectedTicket.category}}
+            </span>
+
+        </div>
+
+        <div class="detail-row">
+
+            <b>
+                Priority
+            </b>
+
+            <span class="priority">
+                {{selectedTicket.priority}}
+            </span>
+
+        </div>
+
+        <div class="detail-row">
+
+            <b>
+                Status
+            </b>
+
+            <span class="status">
+                {{selectedTicket.status}}
+            </span>
+
+        </div>
+
+        <button
         class="cancel-btn"
         (click)="closeDetails()">
 
-        Back
+            Back To Tickets
 
-    </button>
+        </button>
 
+    </div>
 
 </div>
