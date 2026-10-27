@@ -1,7 +1,6 @@
 const User = require("../models/User");
 const Ticket = require("../models/Ticket");
 
-
 const getAdminStats = async(req,res)=>{
 
     try{

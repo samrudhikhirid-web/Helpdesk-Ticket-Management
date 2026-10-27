@@ -3,7 +3,7 @@ const cors = require("cors");
 require("dotenv").config();
 
 const connectDB = require("./config/db");
-const app = express();
+const app = express(); //instanace of express
 const userRoutes = require("./routes/userRoutes");
 const ticketRoutes=require("./routes/ticketRoutes");
 const adminRoutes=require("./routes/adminRoutes");
@@ -19,6 +19,7 @@ app.use("/api/users", userRoutes);
 app.use("/api/tickets", ticketRoutes);
 app.use("/api/admin",adminRoutes);
 app.use("/api/categories",categoryRoutes);
+
 // Test API
 app.get("/", (req, res) => {
     res.send("Help Desk Backend Server Running");
