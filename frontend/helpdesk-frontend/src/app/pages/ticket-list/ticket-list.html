@@ -143,7 +143,17 @@
                         </td>
 
                         <td>
+
+                            <span
+                            [class.status-open]="ticket.status=='Open'"
+                            [class.status-progress]="ticket.status=='In Progress'"
+                            [class.status-resolved]="ticket.status=='Resolved'"
+                            [class.status-closed]="ticket.status=='Closed'">
+
                             {{ticket.status}}
+
+                            </span>
+
                         </td>
 
                         <td>

@@ -17,7 +17,13 @@ const createTicket=async(req,res)=>
             priority
         }=req.body;
     
-        const ticketId = "TKT-" + Date.now();
+        // Get the latest ticket
+        const lastTicket = await Ticket.findOne().sort({ createdDate: -1 });
+        let ticketId = "TKT-1001";
+        if (lastTicket && lastTicket.ticketId) {
+            const lastNumber = parseInt(lastTicket.ticketId.split("-")[1]);
+            ticketId = `TKT-${lastNumber + 1}`;
+        }
 
         const ticket=new Ticket({
             ticketId,
