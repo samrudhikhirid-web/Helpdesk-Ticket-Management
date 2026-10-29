@@ -2,6 +2,7 @@ const express=require("express")
 const router = express.Router();
 
 const authMiddleware = require("../middleware/authMiddleware");
+const upload=require("../middleware/upload")
 
 const {
     createTicket,
@@ -16,6 +17,7 @@ const {
 router.post(
     "/create",
     authMiddleware,
+    upload.single("attachment"),
     createTicket
 );
 

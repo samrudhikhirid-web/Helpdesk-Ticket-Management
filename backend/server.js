@@ -8,13 +8,15 @@ const userRoutes = require("./routes/userRoutes");
 const ticketRoutes=require("./routes/ticketRoutes");
 const adminRoutes=require("./routes/adminRoutes");
 const categoryRoutes=require("./routes/categoryRoutes");
+const path=require("path");
 // Connect to MongoDB
 connectDB();
 
 // Middleware
 app.use(cors());
 app.use(express.json());
-
+app.use(express.urlencoded({extended:true}));
+app.use("/uploads",express.static(path.join(__dirname,"uploads")));
 app.use("/api/users", userRoutes);
 app.use("/api/tickets", ticketRoutes);
 app.use("/api/admin",adminRoutes);

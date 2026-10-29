@@ -58,8 +58,7 @@ const loginUser = async (req, res) => {
             email,
             password
         } = req.body;
-        console.log("Email:", email);
-        console.log("Password:", password);
+        
         // Find user by email
         if(email === "admin@gmail.com" && password === "admin123")
         {

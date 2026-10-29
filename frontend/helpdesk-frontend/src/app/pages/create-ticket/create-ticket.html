@@ -22,9 +22,6 @@
 
         </div>
 
-
-
-
         <form 
         [formGroup]="ticketForm"
         (ngSubmit)="submitTicket()">
@@ -55,10 +52,6 @@
 
             </div>
 
-
-
-
-
             <div class="form-group">
 
 
@@ -81,13 +74,48 @@
 
                 </small>
 
+            </div>
+           <div class="upload-box">
+
+                <label for="fileUpload" class="upload-btn">
+                    📎 Choose Attachment
+                </label>
+                
+                <input 
+                id="fileUpload"
+                type="file"
+                hidden
+                (change)="uploadFile($event)">
+
+
+                <div class="selected-file" *ngIf="selectedFile">
+
+                    <span>
+                        📄 {{selectedFile.name}}
+                    </span>
+
+                    <button 
+                    type="button"
+                    class="remove-file"
+                    (click)="removeFile()">
+
+                        ✖
+
+                    </button>
+
+                </div>
+                 <!-- Image Preview -->
+
+                <div class="preview" *ngIf="imagePreview">
+
+                    <img 
+                    [src]="imagePreview"
+                    alt="Uploaded file preview">
+
+                </div>
 
             </div>
-
-
-
-
-
+            
             <div class="form-group">
 
 
@@ -117,10 +145,6 @@
 
 
             </div>
-
-
-
-
 
             <div class="form-group">
 
@@ -157,9 +181,6 @@
 
 
             </div>
-
-
-
 
 
             <button type="submit">

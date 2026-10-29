@@ -1,5 +1,5 @@
 import { Component,OnInit } from '@angular/core';
-import { ReactiveFormsModule, FormGroup, FormControl, Validators } from '@angular/forms';
+import { ReactiveFormsModule, FormGroup, FormControl, Validators} from '@angular/forms';
 import { CommonModule } from '@angular/common';
 import { TicketService } from '../../ticket.service/ticket.service';
 import { CategoryService } from '../../category.service/category.service';
@@ -14,7 +14,8 @@ import { CategoryService } from '../../category.service/category.service';
   templateUrl: './create-ticket.html',
 })
 export class CreateTicket implements OnInit{
-
+  selectedFile:any=null;
+  imagePreview:any;
   constructor(
     private ticketService:TicketService,
     private categoryService:CategoryService
@@ -52,29 +53,103 @@ export class CreateTicket implements OnInit{
     ])
 
   });
-  submitTicket() {
-    
-    if (this.ticketForm.valid) {
+  uploadFile(event:any)
+{
 
-      this.ticketService.createTicket(
-        this.ticketForm.value
-      ).subscribe({
-          next:(response:any)=>{
-            console.log(response);
-            alert("Ticket created successfully")
-            this.ticketForm.reset() //reset ticket
-          },
-           error:(error)=>{
-              console.log(error);
-              console.log(error.error);              
-              alert(JSON.stringify(error.error)
-              )
-           }
-      });
+    this.selectedFile = event.target.files[0];
+
+    if(this.selectedFile && this.selectedFile.type.startsWith('image'))
+    {
+        const reader = new FileReader();
+        reader.onload = () => {
+            this.imagePreview = reader.result;
+        };
+        reader.readAsDataURL(this.selectedFile);
     }
-    else {
-      console.log("Form is invalid");
-      alert("Please fill all required fields correctly.");
+
+    console.log(this.selectedFile);
+}
+removeFile(){
+
+    this.selectedFile = null;
+
+    this.imagePreview = null;
+
+}
+      submitTicket() {
+
+  if(this.ticketForm.valid){
+
+    const formData = new FormData();
+
+    formData.append(
+      "title",
+      this.ticketForm.value.title || ""
+    );
+
+    formData.append(
+      "description",
+      this.ticketForm.value.description || ""
+    );
+
+    formData.append(
+      "category",
+      this.ticketForm.value.category || ""
+    );
+
+    formData.append(
+      "priority",
+      this.ticketForm.value.priority || ""
+    );
+
+
+    if(this.selectedFile){
+
+      formData.append(
+        "attachment",
+        this.selectedFile
+      );
+
     }
+
+
+    this.ticketService.createTicket(formData)
+    .subscribe({
+
+      next:(response:any)=>{
+
+        console.log(response);
+
+        alert("Ticket created successfully");
+
+        this.ticketForm.reset();
+
+        this.selectedFile=null;
+
+        this.imagePreview=null;
+
+      },
+
+
+      error:(error)=>{
+
+        console.log(error);
+
+        alert(JSON.stringify(error.error));
+
+      }
+
+    });
+
+  }
+
+  else{
+
+    alert("Please fill all required fields correctly.");
+
+  }
+
 }
+    
 }
+

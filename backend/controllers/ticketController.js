@@ -4,6 +4,7 @@ const Ticket=require("../models/Ticket")
 
 const createTicket=async(req,res)=>
 {
+    console.log("Uploaded File:", req.file);
     if(req.user.role === "Admin"){
     return res.status(403).json({
         message:"Admin cannot create tickets"
@@ -31,7 +32,9 @@ const createTicket=async(req,res)=>
             description,
             category,
             priority,
-            createdBy:req.user.id
+            createdBy:req.user.id,
+            attachment:req.file
+            ? req.file.filename: ""
         });
         await ticket.save();
         res.status(201).json({

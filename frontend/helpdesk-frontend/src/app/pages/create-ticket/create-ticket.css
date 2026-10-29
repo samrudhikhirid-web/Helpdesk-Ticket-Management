@@ -24,7 +24,7 @@
     background:linear-gradient(135deg,#0f172a,#1e3a8a);
     color:white;
     text-align:center;
-    padding:35px;
+    padding:8px;
 }
 
 .ticket-icon{
@@ -101,17 +101,39 @@ small{
 
 /* Button */
 
-button{
+/* Submit Button Only */
+
+form button[type="submit"]{
+
     width:100%;
+
     margin-top:15px;
+
     padding:14px;
+
     border:none;
+
     border-radius:12px;
+
     background:#2563eb;
+
     color:white;
+
     font-size:16px;
+
     cursor:pointer;
+
     transition:.3s;
+
+}
+
+
+form button[type="submit"]:hover{
+
+    background:#1d4ed8;
+
+    transform:translateY(-2px);
+
 }
 
 button:hover{
@@ -119,6 +141,138 @@ button:hover{
     transform:translateY(-2px);
 }
 
+.upload-box{
+    margin-top:10px;
+}
+
+
+.upload-btn{
+
+    display:inline-block;
+
+    padding:12px 20px;
+
+    background:#2563eb;
+
+    color:white;
+
+    border-radius:10px;
+
+    cursor:pointer;
+
+    font-size:14px;
+
+    transition:.3s;
+
+}
+
+
+.upload-btn:hover{
+
+    background:#1d4ed8;
+
+}
+
+
+.selected-file{
+
+    margin-top:15px;
+
+    padding:12px 15px;
+
+    background:#f1f5f9;
+
+    border-radius:10px;
+
+    display:flex;
+
+    justify-content:space-between;
+
+    align-items:center;
+
+}
+
+.selected-file span{
+
+    font-size:14px;
+
+    color:#334155;
+
+    max-width:400px;
+
+    overflow:hidden;
+
+    text-overflow:ellipsis;
+
+    white-space:nowrap;
+
+}
+
+
+
+.remove-file{
+
+    width:32px;
+
+    height:32px;
+
+    padding:0;
+
+    margin:0;
+
+    background:#ef4444;
+
+    color:white;
+
+    border:none;
+
+    border-radius:50%;
+
+    display:flex;
+
+    justify-content:center;
+
+    align-items:center;
+
+    cursor:pointer;
+
+    font-size:14px;
+
+}
+
+
+
+.remove-file:hover{
+
+    background:#dc2626;
+
+    transform:none;
+
+}
+.preview{
+
+    margin-top:20px;
+
+    text-align:center;
+
+}
+
+
+.preview img{
+
+    width:200px;
+
+    height:150px;
+
+    object-fit:cover;
+
+    border-radius:12px;
+
+    border:1px solid #cbd5e1;
+
+    padding:5px;
+
+}
 /* Mobile */
 
 @media(max-width:600px){

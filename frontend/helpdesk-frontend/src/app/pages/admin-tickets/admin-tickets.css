@@ -178,7 +178,59 @@ tbody tr:hover{
 .cancel-btn:hover{
     background:#b91c1c;
 }
+.attachment-row{
 
+    align-items:flex-start;
+
+}
+
+.attachment-box{
+
+    text-align:right;
+
+}
+
+.attachment-image{
+
+    width:220px;
+
+    border-radius:12px;
+
+    border:1px solid #ddd;
+
+    box-shadow:0 5px 15px rgba(0,0,0,.15);
+
+    transition:.3s;
+
+    cursor:pointer;
+
+}
+
+.attachment-image:hover{
+
+    transform:scale(1.05);
+
+}
+
+.attachment-box a{
+
+    display:inline-block;
+
+    margin-top:10px;
+
+    color:#2563eb;
+
+    text-decoration:none;
+
+    font-weight:600;
+
+}
+
+.attachment-box a:hover{
+
+    text-decoration:underline;
+
+}
 @media(max-width:800px){
 
     .details-card{

@@ -233,7 +233,32 @@
             </span>
 
         </div>
+        <div class="detail-row attachment-row" *ngIf="selectedTicket.attachment">
 
+            <b>
+                Attachment
+            </b>
+
+            <div class="attachment-box">
+
+                <img
+                [src]="'http://localhost:5000/uploads/' + selectedTicket.attachment"
+                alt="Attachment"
+                class="attachment-image">
+
+                <br>
+
+                <a
+                [href]="'http://localhost:5000/uploads/' + selectedTicket.attachment"
+                target="_blank">
+
+                    View Full Image
+
+                </a>
+
+            </div>
+
+        </div>
         <div class="detail-row">
 
             <b>

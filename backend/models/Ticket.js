@@ -50,6 +50,12 @@ const ticketSchema = new mongoose.Schema({
     {
         type:Date,
         default:Date.now
+    },
+    attachment:
+    {
+        type:String,
+        default:""
     }
+    
 })
 module.exports=mongoose.model("Ticket",ticketSchema);
