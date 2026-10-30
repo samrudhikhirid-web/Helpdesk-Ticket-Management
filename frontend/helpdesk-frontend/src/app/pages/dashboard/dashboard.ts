@@ -47,5 +47,9 @@ export class Dashboard implements OnInit{
   getClosedTickets() {
     return this.tickets.filter(ticket => ticket.status === 'Closed').length;
   }
+
+  getInprogressTickets() {
+    return this.tickets.filter(ticket => ticket.status === 'In Progress').length;
+  }
 }
 

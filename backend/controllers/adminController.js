@@ -13,12 +13,16 @@ const getAdminStats = async(req,res)=>{
         const resolvedTickets = await Ticket.countDocuments({
             status:"Resolved"
         });
+        const inProgressTickets = await Ticket.countDocuments({
+            status:"In Progress"
+        });
 
         res.json({
             totalUsers,
             totalTickets,
             openTickets,
-            resolvedTickets
+            resolvedTickets,
+            inProgressTickets
         });
 
     }
