@@ -8,7 +8,7 @@ const userRoutes = require("./routes/userRoutes");
 const ticketRoutes=require("./routes/ticketRoutes");
 const adminRoutes=require("./routes/adminRoutes");
 const categoryRoutes=require("./routes/categoryRoutes");
-const dashboardRoutes=require("./routes/dashboardRoutes")
+
 const path=require("path");
 // Connect to MongoDB
 connectDB();
@@ -21,8 +21,8 @@ app.use("/uploads",express.static(path.join(__dirname,"uploads")));
 app.use("/api/users", userRoutes);
 app.use("/api/tickets", ticketRoutes);
 app.use("/api/admin",adminRoutes);
-app.use("/api/categories",categoryRoutes);
-app.use("/api/dashboard",dashboardRoutes)
+
+
 
 // Test API
 app.get("/", (req, res) => {

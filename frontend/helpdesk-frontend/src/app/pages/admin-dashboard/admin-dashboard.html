@@ -106,10 +106,48 @@
                 </p>
 
             </div>
+        </div>
+            <div class="card">
+
+                <div class="card-icon orange">
+                ⏳
+                </div>
+
+                <div>
+
+                    <h2>
+                    {{stats.inProgressTickets}}
+                    </h2>
+
+                    <p>
+                    In Progress
+                    </p>
+
+                </div>
+
+            </div>
+            
+       
+
+        <div class="card">
+
+            <div class="card-icon red">
+            ✓
+            </div>
+
+            <div>
+
+                <h2>
+                {{stats.closedTickets}}
+                </h2>
+
+                <p>
+                Closed Tickets
+                </p>
+
+            </div>
 
         </div>
-
-
 
 
         <div class="card">
@@ -135,7 +173,38 @@
 
     </div>
 
+    <div class="charts">
 
+        <div class="chart-card">
+
+            <h2>
+            Tickets By Category
+            </h2>
+
+            <canvas
+            baseChart
+            [data]="categoryChartData"
+            [type]="'bar'">
+            </canvas>
+
+            </div>
+
+            <div class="chart-card">
+
+            <h2>
+            Ticket Status
+            </h2>
+
+            <canvas
+            baseChart
+            [data]="statusChartData"
+            [type]="'doughnut'">
+            </canvas>
+
+        </div>
+
+
+    </div>
 
 
 
