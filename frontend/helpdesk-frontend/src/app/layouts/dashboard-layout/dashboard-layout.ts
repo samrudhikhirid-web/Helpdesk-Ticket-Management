@@ -19,7 +19,7 @@ export class DashboardLayout implements OnInit {
 
     this.role = user.role;
 
-    console.log("Role:", this.role);
+    //console.log("Role:", this.role);
 
   }
  logout(){

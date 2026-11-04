@@ -12,7 +12,7 @@ export const authInterceptor: HttpInterceptorFn = (req, next) => {
       }
     });
 
-    console.log("Authorization Header Added");
+    // console.log("Authorization Header Added");
 
   }
 

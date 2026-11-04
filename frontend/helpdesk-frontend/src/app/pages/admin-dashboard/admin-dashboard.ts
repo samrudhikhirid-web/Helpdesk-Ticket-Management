@@ -20,7 +20,11 @@ export class AdminDashboard implements OnInit{
 
   pendingTickets:any[]=[];
 
-
+    chartOptions:any = {
+      responsive: true,
+      maintainAspectRatio: false
+    };
+    
   categoryChartData:any={
     labels:[],
     datasets:[
