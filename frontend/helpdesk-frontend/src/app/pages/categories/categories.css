@@ -35,14 +35,15 @@
 
 .add-card{
     background:white;
-    margin-top:30px;
+    margin-top:20px;
     padding:25px;
     border-radius:18px;
     box-shadow:0 6px 18px rgba(0,0,0,.08);
 }
 
 .add-card h2{
-    margin-bottom:20px;
+    margin-top:0;
+    margin-bottom:15px;
     color:#111827;
 }
 
@@ -98,7 +99,7 @@ button{
 .table-card{
     background:white;
     margin-top:30px;
-    padding:25px;
+    padding:15px;
     border-radius:18px;
     box-shadow:0 6px 18px rgba(0,0,0,.08);
 }
@@ -107,7 +108,9 @@ button{
     display:flex;
     justify-content:space-between;
     align-items:center;
+    margin-top:0;
     margin-bottom:20px;
+
 }
 
 .table-title h2{
@@ -138,7 +141,7 @@ th{
 }
 
 td{
-    padding:15px;
+    padding:8px;
     text-align:center;
     border-bottom:1px solid #e5e7eb;
 }

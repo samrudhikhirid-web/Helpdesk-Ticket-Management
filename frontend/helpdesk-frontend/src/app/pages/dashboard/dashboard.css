@@ -1,309 +1,168 @@
 .dashboard {
-
-    padding:30px;
+    padding:0px;
     background:#f8fafc;
     min-height:100vh;
-
 }
-
 
 /* Welcome */
 
 .welcome-card{
-
     background:linear-gradient(135deg,#203a43,#2c5364);
-
     color:white;
-
-    padding:30px;
-
+    padding:15px;
     border-radius:20px;
-
     display:flex;
-
     justify-content:space-between;
-
     align-items:center;
-
     box-shadow:0 10px 25px rgba(0,0,0,0.15);
-
 }
-
 
 .welcome-card h1{
-
     font-size:32px;
-
+    margin-top:0;
     margin-bottom:10px;
-
 }
-
 
 .welcome-card p{
-
     opacity:.9;
-
 }
-
 
 .support-icon{
-
     font-size:70px;
-
 }
-
 
 /* Cards */
 
-
 .cards{
-
     display:grid;
-
     grid-template-columns:repeat(4,1fr);
-
-    gap:25px;
-
+    gap:15px;
     margin:35px 0;
-
 }
-
-
 
 .card{
-
     background:white;
-
-    padding:25px;
-
+    padding:15px;
     border-radius:18px;
-
     display:flex;
-
     align-items:center;
-
     gap:20px;
-
     box-shadow:0 8px 20px rgba(0,0,0,.1);
-
     transition:.3s;
-
 }
-
-
 
 .card:hover{
-
     transform:translateY(-8px);
-
 }
-
 
 .icon{
-
     font-size:35px;
-
 }
-
 
 .card h2{
-
     font-size:36px;
-
     margin:0;
-
 }
-
-
 
 .card span{
-
     color:#64748b;
-
 }
-
 
 /* Different colors */
 
-
 .total h2{
-
     color:#2563eb;
-
 }
-
 
 .open h2{
-
     color:#f59e0b;
-
 }
-
 
 .resolved h2{
-
     color:#16a34a;
-
 }
-
 
 .closed h2{
-
     color:#dc2626;
-
 }
-
-
 
 /* Ticket Section */
 
-
 .section-header{
-
     display:flex;
-
     justify-content:space-between;
-
     align-items:center;
-
     margin-bottom:20px;
-
 }
-
 
 .section-header h2{
-
     color:#203a43;
-
 }
-
-
 
 .section-header button{
-
     background:#2563eb;
-
     color:white;
-
     border:none;
-
     padding:12px 20px;
-
     border-radius:10px;
-
     cursor:pointer;
-
 }
-
-
 
 .section-header button:hover{
-
     background:#1d4ed8;
-
 }
-
-
 
 /* Table */
 
-
 .table-container{
-
     background:white;
-
     border-radius:18px;
-
     overflow:hidden;
-
     box-shadow:0 8px 20px rgba(0,0,0,.1);
-
 }
-
-
 
 table{
-
     width:100%;
-
     border-collapse:collapse;
-
 }
-
-
 
 thead{
-
     background:#203a43;
-
     color:white;
-
 }
-
-
 
 th{
-
     padding:16px;
-
 }
-
-
 
 td{
-
     padding:15px;
-
     text-align:center;
-
     border-bottom:1px solid #e5e7eb;
-
 }
-
-
 
 tbody tr:hover{
-
     background:#f1f5f9;
-
 }
-
 
 /* Status badge */
 
-
 .status{
-
     background:#dcfce7;
-
     color:#15803d;
-
     padding:6px 14px;
-
     border-radius:20px;
-
     font-size:14px;
-
 }
-
-
 
 /* Priority badge */
 
-
 .priority{
-
     background:#fef3c7;
-
     color:#b45309;
-
     padding:6px 14px;
-
     border-radius:20px;
-
 }
-
-
 
 /* Mobile */
 
