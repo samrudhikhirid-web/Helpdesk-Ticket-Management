@@ -46,6 +46,25 @@ export class AdminDashboard implements OnInit{
     ]
   };
 
+  lineMonthChartData:any={
+    labels:[],
+    datasets:[
+      {
+        label:"Monthly Tickets",
+        data:[]
+      }
+    ]
+  };
+
+  priorityChartData:any={
+    labels:[],
+    datasets:[
+      {
+        label:"Priority",
+        data:[]
+      }
+    ]
+  };
 
   constructor(
     private adminService:AdminService,
@@ -60,7 +79,8 @@ export class AdminDashboard implements OnInit{
     this.loadPendingTickets();
     this.loadCategoryChart();
     this.loadStatusChart();
-
+    this.loadLineMonthChart();
+    this.loadPriorityChart();
   }
 
   loadStats(){
@@ -135,4 +155,37 @@ export class AdminDashboard implements OnInit{
 
 }
 
+loadLineMonthChart()
+{
+  const months = ["","Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"];
+  this.adminService.getMonthlyData()
+  .subscribe((data:any)=>{
+    this.lineMonthChartData = {
+      labels:data.map((item:any)=>months[item._id.month] + ' ' + item._id.year),
+      datasets:[
+        {
+          label:"Monthly Tickets",
+          data:data.map((item:any)=>item.count)
+        }
+      ]
+    }
+  });
 }
+loadPriorityChart(){
+  this.adminService.getPriorityData()
+  .subscribe((data:any)=>{
+    
+    this.priorityChartData = {
+    labels:data.map((item:any)=>item._id),
+    datasets:[
+      {
+        label:"Priority",
+        data:data.map((item:any)=>item.count)
+      }
+    ]
+  }
+});
+}
+}
+
+

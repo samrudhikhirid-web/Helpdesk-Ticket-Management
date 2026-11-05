@@ -203,8 +203,30 @@
             [type]="'doughnut'">
             </canvas>
 
-        </div>
 
+        </div>
+          <div class="chart-card">
+
+        <h2>Monthly Ticket Trend</h2>
+
+        <canvas
+            baseChart
+            [data]="lineMonthChartData"
+            [options]="chartOptions"
+            [type]="'line'">
+        </canvas>
+
+    </div>
+    <div class="chart-card">
+        <h2>Tickets By Priority</h2>
+
+        <canvas
+            baseChart
+            [data]="priorityChartData"
+            [options]="chartOptions"
+            [type]="'bar'">
+        </canvas>
+    </div>
 
     </div>
 

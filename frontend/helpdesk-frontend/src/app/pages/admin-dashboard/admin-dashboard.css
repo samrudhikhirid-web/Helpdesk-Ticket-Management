@@ -9,7 +9,7 @@
 .top-section{
     background:linear-gradient(135deg,#0f172a,#1e3a8a);
     color:white;
-    padding:20px;
+    padding:15px;
     border-radius:20px;
     margin-top:0px;
     display:flex;
@@ -160,7 +160,7 @@ max-height:200px;
 
 .ticket-section{
     background:white;
-    padding:25px;
+    padding:10px;
     border-radius:18px;
     box-shadow:0 6px 18px rgba(0,0,0,.08);
     margin-top:30px;
@@ -170,7 +170,7 @@ max-height:200px;
     display:flex;
     justify-content:space-between;
     align-items:center;
-    margin-bottom:20px;
+    margin-bottom:15px;
 }
 
 .section-title h2{
