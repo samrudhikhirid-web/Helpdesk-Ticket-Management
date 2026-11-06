@@ -1,6 +1,7 @@
 import { Component, OnInit, ChangeDetectorRef } from '@angular/core';
 import { AdminService } from '../../admin.service/admin.service';
 import { TicketService } from '../../ticket.service/ticket.service';
+import {SocketService} from '../../socket.service/socket.service';
 import { CommonModule } from '@angular/common';
 import { BaseChartDirective } from 'ng2-charts';
 
@@ -69,6 +70,7 @@ export class AdminDashboard implements OnInit{
   constructor(
     private adminService:AdminService,
     private ticketService:TicketService,
+    private socketService:SocketService,
     private cdr:ChangeDetectorRef
   ){}
 

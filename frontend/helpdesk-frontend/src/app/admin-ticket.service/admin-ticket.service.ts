@@ -18,7 +18,7 @@ export class AdminTicketService {
         });
 
         return this.http.get(
-        "http://localhost:5000/api/tickets/all",
+        "http://localhost:5000/api/tickets/alltickets",
         {headers}
         );
 

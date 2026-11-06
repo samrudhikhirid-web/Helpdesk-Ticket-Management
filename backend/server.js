@@ -1,5 +1,6 @@
 const express = require("express");
 const cors = require("cors");
+const {Server}=require("socket.io");
 require("dotenv").config();
 
 const connectDB = require("./config/db");
@@ -28,10 +29,21 @@ app.use("/api/categories",categoryRoutes);
 app.get("/", (req, res) => {
     res.send("Help Desk Backend Server Running");
 }); 
+const server=require("http").createServer(app);
+const io=new Server(server,{
+    cors:{
+        origin:"http://localhost:4200"
+    }
+    })
+
+io.on("connection",socket=>{console.log("Socket connected:",socket.id),
+socket.on("disconnect",()=>{console.log("Socket disconnected:",socket.id)
+    })
+})
 
 // Server Port
 const PORT = process.env.PORT || 5000;  //Use process.env.PORT if it exists, otherwise use 5000.
 
-app.listen(PORT, () => {
+server.listen(PORT, () => {
     console.log(`Server running on port ${PORT}`);
 });

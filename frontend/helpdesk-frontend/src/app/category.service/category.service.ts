@@ -18,7 +18,7 @@ getCategories(){
       });
 
       return this.http.get(
-      "http://localhost:5000/api/categories/all",
+      "http://localhost:5000/api/categories/allcategories",
       {headers}
       );
   }

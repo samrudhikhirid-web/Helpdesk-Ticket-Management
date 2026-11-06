@@ -28,7 +28,7 @@ router.get(
     getMyTickets
 );
 router.get(
-    "/all",
+    "/alltickets",
     authMiddleware,
     getAllTickets
 );

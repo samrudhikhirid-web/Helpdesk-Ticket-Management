@@ -17,7 +17,7 @@ router.post(
 );
 
 router.get(
-    "/all",
+    "/allcategories",
     authMiddleware,
     getCategories
 );
